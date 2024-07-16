@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "550551647499",
+    "project_id": "p-l-av4-fn879e",
+    "storage_bucket": "p-l-av4-fn879e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550551647499:android:658c36ce23a45780b2de0e",
+        "android_client_info": {
+          "package_name": "com.mycompany.plav4"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDbIkRGbfGYXu49UJC7yp3TJC5H1UdtC4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
