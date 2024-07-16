@@ -1,7 +1,3 @@
-# PLAv4
+# PLA Game Matching App
 
-A new Flutter project.
-
-## Getting Started
-
-FlutterFlow projects are built to run on the Flutter _stable_ release.
+this app allows gamers to find matching games in their local area.
