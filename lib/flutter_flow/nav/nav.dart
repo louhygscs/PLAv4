@@ -8,6 +8,7 @@ import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
 import '/main.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -175,6 +176,38 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/map',
           builder: (context, params) =>
               params.isEmpty ? const NavBarPage(initialPage: 'map') : const MapWidget(),
+        ),
+        FFRoute(
+          name: 'create_CourtYard',
+          path: '/createCourtYard',
+          builder: (context, params) => const CreateCourtYardWidget(),
+        ),
+        FFRoute(
+          name: 'edit_CourtYard',
+          path: '/editCourtYard',
+          builder: (context, params) => EditCourtYardWidget(
+            paramVenueName: params.getParam(
+              'paramVenueName',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'search_CourtYard',
+          path: '/searchCourtYard',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'search_CourtYard')
+              : const SearchCourtYardWidget(),
+        ),
+        FFRoute(
+          name: 'details_CourtYard',
+          path: '/detailsCourtYard',
+          builder: (context, params) => DetailsCourtYardWidget(
+            paramVenueName: params.getParam(
+              'paramVenueName',
+              ParamType.String,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -361,12 +394,12 @@ class FFRoute {
               : builder(context, ffParams);
           final child = appStateNotifier.loading
               ? Container(
-                  color: const Color(0xFF000669),
+                  color: FlutterFlowTheme.of(context).primary,
                   child: Center(
                     child: Image.asset(
-                      'assets/images/pla_logo.png',
-                      width: 275.0,
-                      fit: BoxFit.contain,
+                      'assets/images/43.png',
+                      width: 315.0,
+                      fit: BoxFit.cover,
                     ),
                   ),
                 )

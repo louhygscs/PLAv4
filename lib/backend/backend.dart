@@ -9,6 +9,7 @@ import 'schema/users_record.dart';
 import 'schema/chat_messages_record.dart';
 import 'schema/chats_record.dart';
 import 'schema/userquestion_record.dart';
+import 'schema/sportvenue_record.dart';
 import 'dart:async';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
@@ -23,6 +24,7 @@ export 'schema/users_record.dart';
 export 'schema/chat_messages_record.dart';
 export 'schema/chats_record.dart';
 export 'schema/userquestion_record.dart';
+export 'schema/sportvenue_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -317,6 +319,84 @@ Future<FFFirestorePage<UserquestionRecord>> queryUserquestionRecordPage({
       if (isStream) {
         final streamSubscription =
             (page.dataStream)?.listen((List<UserquestionRecord> data) {
+          for (var item in data) {
+            final itemIndexes = controller.itemList!
+                .asMap()
+                .map((k, v) => MapEntry(v.reference.id, k));
+            final index = itemIndexes[item.reference.id];
+            final items = controller.itemList!;
+            if (index != null) {
+              items.replaceRange(index, index + 1, [item]);
+              controller.itemList = {
+                for (var item in items) item.reference: item
+              }.values.toList();
+            }
+          }
+        });
+        streamSubscriptions?.add(streamSubscription);
+      }
+      return page;
+    });
+
+/// Functions to query SportvenueRecords (as a Stream and as a Future).
+Future<int> querySportvenueRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      SportvenueRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<SportvenueRecord>> querySportvenueRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      SportvenueRecord.collection,
+      SportvenueRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<SportvenueRecord>> querySportvenueRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      SportvenueRecord.collection,
+      SportvenueRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+Future<FFFirestorePage<SportvenueRecord>> querySportvenueRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+  required PagingController<DocumentSnapshot?, SportvenueRecord> controller,
+  List<StreamSubscription?>? streamSubscriptions,
+}) =>
+    queryCollectionPage(
+      SportvenueRecord.collection,
+      SportvenueRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    ).then((page) {
+      controller.appendPage(
+        page.data,
+        page.nextPageMarker,
+      );
+      if (isStream) {
+        final streamSubscription =
+            (page.dataStream)?.listen((List<SportvenueRecord> data) {
           for (var item in data) {
             final itemIndexes = controller.itemList!
                 .asMap()

@@ -22,6 +22,12 @@ class FFAppState extends ChangeNotifier {
     notifyListeners();
   }
 
+  bool _searchActive = false;
+  bool get searchActive => _searchActive;
+  set searchActive(bool value) {
+    _searchActive = value;
+  }
+
   final _userDocQueryManager = FutureRequestManager<UsersRecord>();
   Future<UsersRecord> userDocQuery({
     String? uniqueQueryKey,

@@ -1,3 +1,4 @@
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -8,8 +9,9 @@ import 'auth/firebase_auth/auth_util.dart';
 import 'backend/firebase/firebase_config.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
-import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
+
+import '/flutter_flow/admob_util.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +19,15 @@ void main() async {
   usePathUrlStrategy();
   await initFirebase();
 
-  runApp(const MyApp());
+  adMobUpdateRequestConfiguration();
+
+  final appState = FFAppState(); // Initialize FFAppState
+  await appState.initializePersistedState();
+
+  runApp(ChangeNotifierProvider(
+    create: (context) => appState,
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatefulWidget {
@@ -117,6 +127,7 @@ class _NavBarPageState extends State<NavBarPage> {
       'auth_2_Profile': const Auth2ProfileWidget(),
       'chat_2_main': const Chat2MainWidget(),
       'map': const MapWidget(),
+      'search_CourtYard': const SearchCourtYardWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -157,6 +168,14 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24.0,
             ),
             label: 'Google Map',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.sports,
+              size: 24.0,
+            ),
+            label: 'Sport Venue',
             tooltip: '',
           )
         ],

@@ -33,6 +33,7 @@ dependencies:
   cloud_firestore_web: 3.12.3
   collection: 1.18.0
   dropdown_button2: 2.3.9
+  easy_debounce: 2.0.1
   file_picker: 8.0.3
   firebase_analytics: 10.10.5
   firebase_analytics_platform_interface: 3.10.6
@@ -65,6 +66,7 @@ dependencies:
   google_maps_flutter_ios: 2.6.1
   google_maps_flutter_platform_interface: 2.7.1
   google_maps_flutter_web: 0.5.7
+  google_mobile_ads: 5.1.0
   google_sign_in: 6.1.5
   google_sign_in_android: 6.1.20
   google_sign_in_ios: 5.6.4
@@ -100,6 +102,7 @@ dependencies:
   sign_in_with_apple_web: 1.0.1
   sqflite: 2.2.6
   stream_transform: 2.1.0
+  text_search: 1.0.1
   timeago: 3.6.1
   url_launcher: 6.2.5
   url_launcher_android: 6.3.0

@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/components/header_logo_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -109,10 +110,10 @@ class _Auth2ForgotPasswordWidgetState extends State<Auth2ForgotPasswordWidget>
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 70.0, 0.0, 32.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 70.0, 0.0, 25.0),
                   child: Container(
-                    width: 200.0,
-                    height: 70.0,
+                    width: 307.0,
+                    height: 228.0,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16.0),
                     ),
@@ -121,24 +122,15 @@ class _Auth2ForgotPasswordWidgetState extends State<Auth2ForgotPasswordWidget>
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 12.0, 0.0),
-                          child: Icon(
-                            Icons.flourescent_rounded,
-                            color: FlutterFlowTheme.of(context).info,
-                            size: 44.0,
+                        Expanded(
+                          child: Align(
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: wrapWithModel(
+                              model: _model.headerLogoModel,
+                              updateCallback: () => setState(() {}),
+                              child: const HeaderLogoWidget(),
+                            ),
                           ),
-                        ),
-                        Text(
-                          'flow.io',
-                          style: FlutterFlowTheme.of(context)
-                              .displaySmall
-                              .override(
-                                fontFamily: 'Sora',
-                                color: FlutterFlowTheme.of(context).info,
-                                letterSpacing: 0.0,
-                              ),
                         ),
                       ],
                     ),
