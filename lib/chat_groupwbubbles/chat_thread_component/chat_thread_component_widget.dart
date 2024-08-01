@@ -121,7 +121,6 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                 }
                 List<ChatMessagesRecord> listViewChatMessagesRecordList =
                     snapshot.data!;
-
                 if (listViewChatMessagesRecordList.isEmpty) {
                   return EmptyStateSimpleWidget(
                     icon: Icon(
@@ -133,6 +132,7 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                     body: 'You have not sent any messages in this chat yet.',
                   );
                 }
+
                 return ListView.builder(
                   padding: const EdgeInsets.fromLTRB(
                     0,

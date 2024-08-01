@@ -71,7 +71,6 @@ class _EditCourtYardWidgetState extends State<EditCourtYardWidget> {
         }
         List<SportvenueRecord> editCourtYardSportvenueRecordList =
             snapshot.data!;
-
         // Return an empty Container when the item does not exist.
         if (snapshot.data!.isEmpty) {
           return Container();
@@ -80,6 +79,7 @@ class _EditCourtYardWidgetState extends State<EditCourtYardWidget> {
             editCourtYardSportvenueRecordList.isNotEmpty
                 ? editCourtYardSportvenueRecordList.first
                 : null;
+
         return GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
               ? FocusScope.of(context).requestFocus(_model.unfocusNode)

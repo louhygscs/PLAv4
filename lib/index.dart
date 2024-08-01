@@ -32,3 +32,6 @@ export '/court_yard/search_court_yard/search_court_yard_widget.dart'
     show SearchCourtYardWidget;
 export '/court_yard/details_court_yard/details_court_yard_widget.dart'
     show DetailsCourtYardWidget;
+export '/game/create_game/create_game_widget.dart' show CreateGameWidget;
+export '/common/home/home_widget.dart' show HomeWidget;
+export '/game/test/test_widget.dart' show TestWidget;

@@ -28,6 +28,12 @@ class FFAppState extends ChangeNotifier {
     _searchActive = value;
   }
 
+  DocumentReference? _docrefUpdate;
+  DocumentReference? get docrefUpdate => _docrefUpdate;
+  set docrefUpdate(DocumentReference? value) {
+    _docrefUpdate = value;
+  }
+
   final _userDocQueryManager = FutureRequestManager<UsersRecord>();
   Future<UsersRecord> userDocQuery({
     String? uniqueQueryKey,

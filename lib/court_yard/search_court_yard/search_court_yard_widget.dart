@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/components/nav_bar1_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -176,7 +177,7 @@ class _SearchCourtYardWidgetState extends State<SearchCourtYardWidget> {
                   ),
                   Container(
                     width: double.infinity,
-                    height: 742.0,
+                    height: 707.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
@@ -789,6 +790,11 @@ class _SearchCourtYardWidgetState extends State<SearchCourtYardWidget> {
                         ),
                       ],
                     ),
+                  ),
+                  wrapWithModel(
+                    model: _model.navBar1Model,
+                    updateCallback: () => setState(() {}),
+                    child: const NavBar1Widget(),
                   ),
                 ],
               ),

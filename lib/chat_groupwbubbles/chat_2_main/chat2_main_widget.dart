@@ -1,6 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/chat_groupwbubbles/empty_state_simple/empty_state_simple_widget.dart';
+import '/components/nav_bar1_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -129,7 +130,6 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                       );
                     }
                     List<ChatsRecord> listViewChatsRecordList = snapshot.data!;
-
                     if (listViewChatsRecordList.isEmpty) {
                       return Center(
                         child: SizedBox(
@@ -147,6 +147,7 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                         ),
                       );
                     }
+
                     return ListView.builder(
                       padding: EdgeInsets.zero,
                       scrollDirection: Axis.vertical,
@@ -944,6 +945,11 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                     );
                   },
                 ),
+              ),
+              wrapWithModel(
+                model: _model.navBar1Model,
+                updateCallback: () => setState(() {}),
+                child: const NavBar1Widget(),
               ),
             ],
           ),

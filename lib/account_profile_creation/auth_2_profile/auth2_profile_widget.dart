@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/nav_bar1_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -100,6 +101,7 @@ class _Auth2ProfileWidgetState extends State<Auth2ProfileWidget>
               alignment: const AlignmentDirectional(0.0, -1.0),
               child: Container(
                 width: double.infinity,
+                height: 845.0,
                 constraints: const BoxConstraints(
                   maxWidth: 770.0,
                 ),
@@ -586,6 +588,11 @@ class _Auth2ProfileWidgetState extends State<Auth2ProfileWidget>
                   ],
                 ),
               ),
+            ),
+            wrapWithModel(
+              model: _model.navBar1Model,
+              updateCallback: () => setState(() {}),
+              child: const NavBar1Widget(),
             ),
           ],
         ),

@@ -154,9 +154,9 @@ class _EditProfileAuth2WidgetState extends State<EditProfileAuth2Widget> {
               padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 32.0),
               child: FFButtonWidget(
                 onPressed: () async {
-                  final selectedMedia = await selectMedia(
-                    mediaSource: MediaSource.photoGallery,
-                    multiImage: false,
+                  final selectedMedia = await selectMediaWithSourceBottomSheet(
+                    context: context,
+                    allowPhoto: true,
                   );
                   if (selectedMedia != null &&
                       selectedMedia.every(

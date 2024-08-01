@@ -6,8 +6,9 @@ import '/backend/backend.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
+import '/backend/push_notifications/push_notifications_handler.dart'
+    show PushNotificationsHandler;
 import '/index.dart';
-import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
@@ -74,13 +75,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const NavBarPage() : const Auth2LoginWidget(),
+          appStateNotifier.loggedIn ? const Auth2ProfileWidget() : const Auth2LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) =>
-              appStateNotifier.loggedIn ? const NavBarPage() : const Auth2LoginWidget(),
+          builder: (context, _) => appStateNotifier.loggedIn
+              ? const Auth2ProfileWidget()
+              : const Auth2LoginWidget(),
         ),
         FFRoute(
           name: 'auth_2_Create',
@@ -105,9 +107,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'auth_2_Profile',
           path: '/auth2Profile',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'auth_2_Profile')
-              : const Auth2ProfileWidget(),
+          builder: (context, params) => const Auth2ProfileWidget(),
         ),
         FFRoute(
           name: 'auth_2_EditProfile',
@@ -130,9 +130,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'chat_2_main',
           path: '/chat2Main',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'chat_2_main')
-              : const Chat2MainWidget(),
+          builder: (context, params) => const Chat2MainWidget(),
         ),
         FFRoute(
           name: 'chat_2_InviteUsers',
@@ -174,8 +172,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'map',
           path: '/map',
-          builder: (context, params) =>
-              params.isEmpty ? const NavBarPage(initialPage: 'map') : const MapWidget(),
+          builder: (context, params) => const MapWidget(),
         ),
         FFRoute(
           name: 'create_CourtYard',
@@ -195,9 +192,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'search_CourtYard',
           path: '/searchCourtYard',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'search_CourtYard')
-              : const SearchCourtYardWidget(),
+          builder: (context, params) => const SearchCourtYardWidget(),
         ),
         FFRoute(
           name: 'details_CourtYard',
@@ -208,6 +203,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.String,
             ),
           ),
+        ),
+        FFRoute(
+          name: 'CreateGame',
+          path: '/createGame',
+          builder: (context, params) => const CreateGameWidget(),
+        ),
+        FFRoute(
+          name: 'Home',
+          path: '/home',
+          builder: (context, params) => const HomeWidget(),
+        ),
+        FFRoute(
+          name: 'test',
+          path: '/test',
+          builder: (context, params) => const TestWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -403,7 +413,7 @@ class FFRoute {
                     ),
                   ),
                 )
-              : page;
+              : PushNotificationsHandler(child: page);
 
           final transitionInfo = state.transitionInfo;
           return transitionInfo.hasTransition

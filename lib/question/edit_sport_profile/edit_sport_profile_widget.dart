@@ -75,11 +75,11 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
         }
         List<UserquestionRecord> editSportProfileUserquestionRecordList =
             snapshot.data!;
-
         final editSportProfileUserquestionRecord =
             editSportProfileUserquestionRecordList.isNotEmpty
                 ? editSportProfileUserquestionRecordList.first
                 : null;
+
         return GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
               ? FocusScope.of(context).requestFocus(_model.unfocusNode)
