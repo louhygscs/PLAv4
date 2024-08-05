@@ -101,7 +101,7 @@ class _Auth2ProfileWidgetState extends State<Auth2ProfileWidget>
               alignment: const AlignmentDirectional(0.0, -1.0),
               child: Container(
                 width: double.infinity,
-                height: 845.0,
+                height: 779.0,
                 constraints: const BoxConstraints(
                   maxWidth: 770.0,
                 ),

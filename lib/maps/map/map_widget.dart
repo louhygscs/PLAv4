@@ -302,7 +302,7 @@ class _MapWidgetState extends State<MapWidget> {
                           const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                       child: Container(
                         width: double.infinity,
-                        height: 614.0,
+                        height: 590.0,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,

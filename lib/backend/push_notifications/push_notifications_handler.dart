@@ -152,7 +152,7 @@ final parametersBuilderMap =
       ),
   'CreateGame': ParameterData.none(),
   'Home': ParameterData.none(),
-  'test': ParameterData.none(),
+  'GameSetting': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

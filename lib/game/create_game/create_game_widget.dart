@@ -10,7 +10,6 @@ import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'create_game_model.dart';
 export 'create_game_model.dart';
 
@@ -53,8 +52,6 @@ class _CreateGameWidgetState extends State<CreateGameWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -148,7 +145,7 @@ class _CreateGameWidgetState extends State<CreateGameWidget> {
             ),
             Container(
               width: double.infinity,
-              height: 703.0,
+              height: 642.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
               ),
@@ -304,7 +301,7 @@ class _CreateGameWidgetState extends State<CreateGameWidget> {
                                     letterSpacing: 0.0,
                                   ),
                               textAlign: TextAlign.start,
-                              maxLines: 4,
+                              maxLines: 3,
                               keyboardType: TextInputType.multiline,
                               validator: _model
                                   .txtGameDescriptionTextControllerValidator
@@ -786,8 +783,7 @@ class _CreateGameWidgetState extends State<CreateGameWidget> {
                                             .txtNumberPlayersTextController
                                             .text),
                                         userId: currentUserReference,
-                                        sportCategory:
-                                            FFAppState().docrefUpdate,
+                                        sportCategory: _model.selectedDocRef,
                                       ));
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(

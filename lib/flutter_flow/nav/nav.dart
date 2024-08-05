@@ -215,9 +215,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const HomeWidget(),
         ),
         FFRoute(
-          name: 'test',
-          path: '/test',
-          builder: (context, params) => const TestWidget(),
+          name: 'GameSetting',
+          path: '/gameSetting',
+          builder: (context, params) => const GameSettingWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

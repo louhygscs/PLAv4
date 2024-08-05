@@ -7,7 +7,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'home_model.dart';
 export 'home_model.dart';
 
@@ -40,11 +39,8 @@ class _HomeWidgetState extends State<HomeWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<List<SportcategoryRecord>>(
-      stream: querySportcategoryRecord(
-        queryBuilder: (sportcategoryRecord) =>
-            sportcategoryRecord.orderBy('sportname'),
-      ),
+    return StreamBuilder<List<GamematchRecord>>(
+      stream: queryGamematchRecord(),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -63,7 +59,7 @@ class _HomeWidgetState extends State<HomeWidget> {
             ),
           );
         }
-        List<SportcategoryRecord> homeSportcategoryRecordList = snapshot.data!;
+        List<GamematchRecord> homeGamematchRecordList = snapshot.data!;
 
         return GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
@@ -150,7 +146,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                   ),
                   Container(
                     width: double.infinity,
-                    height: 710.0,
+                    height: 640.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
@@ -190,8 +186,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   items: [
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.network(
-                                        'https://picsum.photos/seed/118/600',
+                                      child: Image.asset(
+                                        'assets/images/www.joinpla.com.png',
                                         width: 300.0,
                                         height: 200.0,
                                         fit: BoxFit.cover,
@@ -199,8 +195,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     ),
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.network(
-                                        'https://picsum.photos/seed/724/600',
+                                      child: Image.asset(
+                                        'assets/images/sport_event_1.png',
                                         width: 300.0,
                                         height: 200.0,
                                         fit: BoxFit.cover,
@@ -208,8 +204,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     ),
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.network(
-                                        'https://picsum.photos/seed/41/600',
+                                      child: Image.asset(
+                                        'assets/images/sport_event.png',
                                         width: 300.0,
                                         height: 200.0,
                                         fit: BoxFit.cover,
@@ -257,58 +253,94 @@ class _HomeWidgetState extends State<HomeWidget> {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.all(12.0),
-                                child: FlutterFlowChoiceChips(
-                                  options: homeSportcategoryRecordList
-                                      .map((e) => e.sportname)
-                                      .toList()
-                                      .map((label) => ChipData(label))
-                                      .toList(),
-                                  onChanged: (val) => setState(() => _model
-                                      .choiceChipsValue = val?.firstOrNull),
-                                  selectedChipStyle: ChipStyle(
-                                    backgroundColor:
-                                        FlutterFlowTheme.of(context).primary,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          letterSpacing: 0.0,
+                                child: StreamBuilder<List<SportcategoryRecord>>(
+                                  stream: querySportcategoryRecord(
+                                    queryBuilder: (sportcategoryRecord) =>
+                                        sportcategoryRecord
+                                            .orderBy('sportname'),
+                                  ),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 50.0,
+                                          height: 50.0,
+                                          child: CircularProgressIndicator(
+                                            valueColor:
+                                                AlwaysStoppedAnimation<Color>(
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                            ),
+                                          ),
                                         ),
-                                    iconColor: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    iconSize: 18.0,
-                                    elevation: 4.0,
-                                    borderRadius: BorderRadius.circular(16.0),
-                                  ),
-                                  unselectedChipStyle: ChipStyle(
-                                    backgroundColor:
-                                        FlutterFlowTheme.of(context).alternate,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          letterSpacing: 0.0,
-                                        ),
-                                    iconColor: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                    iconSize: 18.0,
-                                    elevation: 0.0,
-                                    borderRadius: BorderRadius.circular(16.0),
-                                  ),
-                                  chipSpacing: 12.0,
-                                  rowSpacing: 12.0,
-                                  multiselect: false,
-                                  alignment: WrapAlignment.start,
-                                  controller:
-                                      _model.choiceChipsValueController ??=
-                                          FormFieldController<List<String>>(
-                                    [],
-                                  ),
-                                  wrapped: false,
+                                      );
+                                    }
+                                    List<SportcategoryRecord>
+                                        choiceChipsSportcategoryRecordList =
+                                        snapshot.data!;
+
+                                    return FlutterFlowChoiceChips(
+                                      options:
+                                          choiceChipsSportcategoryRecordList
+                                              .map((e) => e.sportname)
+                                              .toList()
+                                              .map((label) => ChipData(label))
+                                              .toList(),
+                                      onChanged: (val) => setState(() => _model
+                                          .choiceChipsValue = val?.firstOrNull),
+                                      selectedChipStyle: ChipStyle(
+                                        backgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              letterSpacing: 0.0,
+                                            ),
+                                        iconColor: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        iconSize: 18.0,
+                                        elevation: 4.0,
+                                        borderRadius:
+                                            BorderRadius.circular(16.0),
+                                      ),
+                                      unselectedChipStyle: ChipStyle(
+                                        backgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .alternate,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              letterSpacing: 0.0,
+                                            ),
+                                        iconColor: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        iconSize: 18.0,
+                                        elevation: 0.0,
+                                        borderRadius:
+                                            BorderRadius.circular(16.0),
+                                      ),
+                                      chipSpacing: 12.0,
+                                      rowSpacing: 12.0,
+                                      multiselect: false,
+                                      alignment: WrapAlignment.start,
+                                      controller:
+                                          _model.choiceChipsValueController ??=
+                                              FormFieldController<List<String>>(
+                                        [],
+                                      ),
+                                      wrapped: false,
+                                    );
+                                  },
                                 ),
                               ),
                               Align(
@@ -335,170 +367,181 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                 ),
-                                child: ListView(
-                                  padding: EdgeInsets.zero,
-                                  scrollDirection: Axis.vertical,
-                                  children: [
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.all(12.0),
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            child: Image.network(
-                                              'https://picsum.photos/seed/8/600',
-                                              width: 156.0,
-                                              height: 127.0,
-                                              fit: BoxFit.cover,
+                                child: StreamBuilder<List<GamematchRecord>>(
+                                  stream: queryGamematchRecord(),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 50.0,
+                                          height: 50.0,
+                                          child: CircularProgressIndicator(
+                                            valueColor:
+                                                AlwaysStoppedAnimation<Color>(
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
                                             ),
                                           ),
                                         ),
-                                        Align(
-                                          alignment:
-                                              const AlignmentDirectional(-1.0, 0.0),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Align(
-                                                alignment: const AlignmentDirectional(
-                                                    -1.0, 0.0),
-                                                child: Text(
-                                                  'Hello World',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .headlineLarge
-                                                      .override(
-                                                        fontFamily: 'Sora',
-                                                        fontSize: 24.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                      );
+                                    }
+                                    List<GamematchRecord>
+                                        listViewGamematchRecordList =
+                                        snapshot.data!;
+
+                                    return ListView.builder(
+                                      padding: EdgeInsets.zero,
+                                      scrollDirection: Axis.vertical,
+                                      itemCount:
+                                          listViewGamematchRecordList.length,
+                                      itemBuilder: (context, listViewIndex) {
+                                        final listViewGamematchRecord =
+                                            listViewGamematchRecordList[
+                                                listViewIndex];
+                                        return Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.all(12.0),
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                child: Image.network(
+                                                  listViewGamematchRecord
+                                                      .gameImg,
+                                                  width: 156.0,
+                                                  height: 127.0,
+                                                  fit: BoxFit.cover,
                                                 ),
                                               ),
-                                              Align(
-                                                alignment: const AlignmentDirectional(
-                                                    -1.0, 0.0),
-                                                child: Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          1.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    'Hello World',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          fontSize: 18.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Align(
-                                                alignment: const AlignmentDirectional(
-                                                    -1.0, 0.0),
-                                                child: Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 8.0, 12.0, 0.0),
-                                                  child: RatingBar.builder(
-                                                    onRatingUpdate: (newValue) =>
-                                                        setState(() => _model
-                                                                .ratingBarValue =
-                                                            newValue),
-                                                    itemBuilder:
-                                                        (context, index) =>
-                                                            Icon(
-                                                      Icons.star_rounded,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .tertiary,
+                                            ),
+                                            Align(
+                                              alignment: const AlignmentDirectional(
+                                                  -1.0, 0.0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Align(
+                                                    alignment:
+                                                        const AlignmentDirectional(
+                                                            -1.0, 0.0),
+                                                    child: Text(
+                                                      listViewGamematchRecord
+                                                          .title,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .headlineLarge
+                                                          .override(
+                                                            fontFamily: 'Sora',
+                                                            fontSize: 24.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
-                                                    direction: Axis.horizontal,
-                                                    initialRating: _model
-                                                        .ratingBarValue ??= 3.0,
-                                                    unratedColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .accent3,
-                                                    itemCount: 5,
-                                                    itemSize: 24.0,
-                                                    glowColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .tertiary,
                                                   ),
-                                                ),
-                                              ),
-                                              Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 7.0, 0.0, 0.0),
-                                                  child: FFButtonWidget(
-                                                    onPressed: () {
-                                                      print(
-                                                          'Button pressed ...');
-                                                    },
-                                                    text: 'Join Game',
-                                                    options: FFButtonOptions(
-                                                      height: 40.0,
+                                                  Align(
+                                                    alignment:
+                                                        const AlignmentDirectional(
+                                                            -1.0, 0.0),
+                                                    child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  24.0,
+                                                                  1.0,
                                                                   0.0,
-                                                                  24.0,
+                                                                  0.0,
                                                                   0.0),
-                                                      iconPadding:
+                                                      child: Text(
+                                                        listViewGamematchRecord
+                                                            .description,
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Inter',
+                                                              fontSize: 18.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                            ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Align(
+                                                    alignment:
+                                                        const AlignmentDirectional(
+                                                            0.0, 0.0),
+                                                    child: Padding(
+                                                      padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
-                                                                  0.0,
+                                                                  7.0,
                                                                   0.0,
                                                                   0.0),
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
+                                                      child: FFButtonWidget(
+                                                        onPressed: () {
+                                                          print(
+                                                              'Button pressed ...');
+                                                        },
+                                                        text: 'Join Game',
+                                                        options:
+                                                            FFButtonOptions(
+                                                          height: 40.0,
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      24.0,
+                                                                      0.0,
+                                                                      24.0,
+                                                                      0.0),
+                                                          iconPadding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
                                                               .primary,
-                                                      textStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Inter',
-                                                                color: Colors
-                                                                    .white,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
-                                                      elevation: 3.0,
-                                                      borderSide: const BorderSide(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 1.0,
+                                                          textStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Inter',
+                                                                    color: Colors
+                                                                        .white,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                          elevation: 3.0,
+                                                          borderSide:
+                                                              const BorderSide(
+                                                            color: Colors
+                                                                .transparent,
+                                                            width: 1.0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                        ),
                                                       ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
                                                     ),
                                                   ),
-                                                ),
+                                                ],
                                               ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  },
                                 ),
                               ),
                             ],

@@ -19,8 +19,6 @@ class HomeModel extends FlutterFlowModel<HomeWidget> {
       choiceChipsValueController?.value?.firstOrNull;
   set choiceChipsValue(String? val) =>
       choiceChipsValueController?.value = val != null ? [val] : [];
-  // State field(s) for RatingBar widget.
-  double? ratingBarValue;
   // Model for NavBar1 component.
   late NavBar1Model navBar1Model;
 

@@ -105,9 +105,9 @@ class _Auth2CreateProfileWidgetState extends State<Auth2CreateProfileWidget>
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 32.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                   child: Container(
-                    width: 306.0,
+                    width: 313.0,
                     height: 224.0,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16.0),
@@ -129,7 +129,8 @@ class _Auth2CreateProfileWidgetState extends State<Auth2CreateProfileWidget>
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding:
+                      const EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 16.0, 16.0),
                   child: Container(
                     width: double.infinity,
                     constraints: const BoxConstraints(
