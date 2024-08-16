@@ -77,9 +77,7 @@ class _DetailsCourtYardWidgetState extends State<DetailsCourtYardWidget> {
                 : null;
 
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -333,7 +331,7 @@ class _DetailsCourtYardWidgetState extends State<DetailsCourtYardWidget> {
                                             child: Text(
                                               valueOrDefault<String>(
                                                 dateTimeFormat(
-                                                    'jm',
+                                                    "jm",
                                                     detailsCourtYardSportvenueRecord
                                                         .availableTime),
                                                 '12:00 AM',
@@ -384,7 +382,7 @@ class _DetailsCourtYardWidgetState extends State<DetailsCourtYardWidget> {
                                             child: Text(
                                               valueOrDefault<String>(
                                                 dateTimeFormat(
-                                                    'jm',
+                                                    "jm",
                                                     detailsCourtYardSportvenueRecord
                                                         .closingTime),
                                                 '12:00 AM',

@@ -35,3 +35,4 @@ export '/court_yard/details_court_yard/details_court_yard_widget.dart'
 export '/game/create_game/create_game_widget.dart' show CreateGameWidget;
 export '/common/home/home_widget.dart' show HomeWidget;
 export '/game/game_setting/game_setting_widget.dart' show GameSettingWidget;
+export '/game/game_map/game_map_widget.dart' show GameMapWidget;

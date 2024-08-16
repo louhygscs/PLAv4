@@ -105,9 +105,7 @@ class _ImageDetailsWidgetState extends State<ImageDetailsWidget>
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -248,7 +246,7 @@ class _ImageDetailsWidgetState extends State<ImageDetailsWidget>
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 4.0, 0.0, 0.0),
                                       child: Text(
-                                        dateTimeFormat('relative',
+                                        dateTimeFormat("relative",
                                             widget.chatMessage!.timestamp!),
                                         style: FlutterFlowTheme.of(context)
                                             .labelSmall

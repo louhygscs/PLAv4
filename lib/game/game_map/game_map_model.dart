@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'details_court_yard_widget.dart' show DetailsCourtYardWidget;
+import 'game_map_widget.dart' show GameMapWidget;
 import 'package:flutter/material.dart';
 
-class DetailsCourtYardModel extends FlutterFlowModel<DetailsCourtYardWidget> {
+class GameMapModel extends FlutterFlowModel<GameMapWidget> {
   @override
   void initState(BuildContext context) {}
 

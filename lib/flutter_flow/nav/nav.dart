@@ -218,6 +218,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'GameSetting',
           path: '/gameSetting',
           builder: (context, params) => const GameSettingWidget(),
+        ),
+        FFRoute(
+          name: 'GameMap',
+          path: '/gameMap',
+          builder: (context, params) => GameMapWidget(
+            gameRefId: params.getParam(
+              'gameRefId',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['gamematch'],
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

@@ -53,9 +53,7 @@ class _CreateGameWidgetState extends State<CreateGameWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -563,7 +561,7 @@ class _CreateGameWidgetState extends State<CreateGameWidget> {
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 12.0, 0.0),
                                   child: Text(
-                                    dateTimeFormat('jm', _model.datePicked1),
+                                    dateTimeFormat("jm", _model.datePicked1),
                                     style: FlutterFlowTheme.of(context)
                                         .headlineSmall
                                         .override(
@@ -656,7 +654,7 @@ class _CreateGameWidgetState extends State<CreateGameWidget> {
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 12.0, 0.0),
                                   child: Text(
-                                    dateTimeFormat('jm', _model.datePicked2),
+                                    dateTimeFormat("jm", _model.datePicked2),
                                     style: FlutterFlowTheme.of(context)
                                         .headlineSmall
                                         .override(

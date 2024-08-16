@@ -7,7 +7,6 @@ class CreateSportProfileModel
     extends FlutterFlowModel<CreateSportProfileWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for txtAge widget.
   FocusNode? txtAgeFocusNode;
@@ -68,7 +67,6 @@ class CreateSportProfileModel
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     txtAgeFocusNode?.dispose();
     txtAgeTextController?.dispose();
 

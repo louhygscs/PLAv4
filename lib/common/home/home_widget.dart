@@ -62,9 +62,7 @@ class _HomeWidgetState extends State<HomeWidget> {
         List<GamematchRecord> homeGamematchRecordList = snapshot.data!;
 
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -482,9 +480,19 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                   0.0,
                                                                   0.0),
                                                       child: FFButtonWidget(
-                                                        onPressed: () {
-                                                          print(
-                                                              'Button pressed ...');
+                                                        onPressed: () async {
+                                                          context.pushNamed(
+                                                            'GameMap',
+                                                            queryParameters: {
+                                                              'gameRefId':
+                                                                  serializeParam(
+                                                                listViewGamematchRecord
+                                                                    .reference,
+                                                                ParamType
+                                                                    .DocumentReference,
+                                                              ),
+                                                            }.withoutNulls,
+                                                          );
                                                         },
                                                         text: 'Join Game',
                                                         options:

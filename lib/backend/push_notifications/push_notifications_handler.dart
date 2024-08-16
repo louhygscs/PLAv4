@@ -153,6 +153,11 @@ final parametersBuilderMap =
   'CreateGame': ParameterData.none(),
   'Home': ParameterData.none(),
   'GameSetting': ParameterData.none(),
+  'GameMap': (data) async => ParameterData(
+        allParams: {
+          'gameRefId': getParameter<DocumentReference>(data, 'gameRefId'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

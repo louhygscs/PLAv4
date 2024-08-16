@@ -81,9 +81,7 @@ class _EditCourtYardWidgetState extends State<EditCourtYardWidget> {
                 : null;
 
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -479,7 +477,7 @@ class _EditCourtYardWidgetState extends State<EditCourtYardWidget> {
                                           12.0, 12.0, 12.0, 12.0),
                                       child: Text(
                                         dateTimeFormat(
-                                            'jm', _model.datePicked1),
+                                            "jm", _model.datePicked1),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyLarge
                                             .override(
@@ -592,7 +590,7 @@ class _EditCourtYardWidgetState extends State<EditCourtYardWidget> {
                                           12.0, 12.0, 12.0, 12.0),
                                       child: Text(
                                         dateTimeFormat(
-                                            'jm', _model.datePicked2),
+                                            "jm", _model.datePicked2),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyLarge
                                             .override(
