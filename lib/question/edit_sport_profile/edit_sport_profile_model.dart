@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 class EditSportProfileModel extends FlutterFlowModel<EditSportProfileWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for txtAge widget.
   FocusNode? txtAgeFocusNode;

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 class Auth2EditProfileModel extends FlutterFlowModel<Auth2EditProfileWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Model for editProfile_auth_2 component.
   late EditProfileAuth2Model editProfileAuth2Model;
 

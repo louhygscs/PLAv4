@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class EditCourtYardModel extends FlutterFlowModel<EditCourtYardWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for txtSportVenueName widget.
   FocusNode? txtSportVenueNameFocusNode;

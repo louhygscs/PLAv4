@@ -38,7 +38,7 @@ class _CustomGoogleMapsState extends State<CustomGoogleMaps> {
   @override
   Widget build(BuildContext context) {
     return GoogleMapsWidget(
-      apiKey: "AIzaSyCRIO1GlspC9CLXY9WWVYs4PfmZwwOR7tk",
+      apiKey: "AIzaSyDrbsbCY10oRs-WNx776sSvoEDcZuKgEM4",
       key: mapsWidgetController,
       sourceLatLng: google_maps.LatLng(
         40.748817, // Latitude for Empire State Building
@@ -54,14 +54,14 @@ class _CustomGoogleMapsState extends State<CustomGoogleMaps> {
         onTapInfoWindow: (_) {
           print("Tapped on Empire State Building info window");
         },
-        assetPath: "assets/images/house-marker.png",
+        assetPath: "assets/ozoxeekxntpq/house-marker.png",
       ),
       destinationMarkerIconInfo: MarkerIconInfo(
-        assetPath: "assets/images/restaurant-marker.png",
+        assetPath: "assets/ozoxeekxntpq/house-marker.png",
       ),
       driverMarkerIconInfo: MarkerIconInfo(
         infoWindowTitle: "Alex",
-        assetPath: "assets/images/driver-marker.png",
+        assetPath: "assets/ozoxeekxntpq/house-marker.png",
         onTapMarker: (currentLocation) {
           print("Driver is currently at $currentLocation");
         },

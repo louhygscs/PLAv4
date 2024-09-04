@@ -121,13 +121,17 @@ class _Auth2CreateWidgetState extends State<Auth2CreateWidget>
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.asset(
-                          'assets/images/pla_logo.png',
-                          width: 166.0,
-                          height: 335.0,
-                          fit: BoxFit.contain,
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.asset(
+                            'assets/images/pla_logo.png',
+                            width: 166.0,
+                            height: 335.0,
+                            fit: BoxFit.contain,
+                          ),
                         ),
                       ),
                     ],

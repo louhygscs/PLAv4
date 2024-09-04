@@ -230,7 +230,13 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     enlargeFactor: 0.25,
                                     enableInfiniteScroll: true,
                                     scrollDirection: Axis.horizontal,
-                                    autoPlay: false,
+                                    autoPlay: true,
+                                    autoPlayAnimationDuration:
+                                        const Duration(milliseconds: 800),
+                                    autoPlayInterval:
+                                        const Duration(milliseconds: (800 + 4000)),
+                                    autoPlayCurve: Curves.linear,
+                                    pauseAutoPlayInFiniteScroll: true,
                                     onPageChanged: (index, _) =>
                                         _model.carouselCurrentIndex = index,
                                   ),

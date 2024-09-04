@@ -18,7 +18,8 @@ enum VideoType {
 Set<VideoPlayerController> _videoPlayers = {};
 
 class FlutterFlowVideoPlayer extends StatefulWidget {
-  const FlutterFlowVideoPlayer({super.key, 
+  const FlutterFlowVideoPlayer({
+    super.key,
     required this.path,
     this.videoType = VideoType.network,
     this.width,
