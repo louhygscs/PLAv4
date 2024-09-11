@@ -3,10 +3,6 @@ import 'game_setting_widget.dart' show GameSettingWidget;
 import 'package:flutter/material.dart';
 
 class GameSettingModel extends FlutterFlowModel<GameSettingWidget> {
-  ///  State fields for stateful widgets in this page.
-
-  final unfocusNode = FocusNode();
-
   @override
   void initState(BuildContext context) {}
 

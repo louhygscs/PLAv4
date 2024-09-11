@@ -39,7 +39,7 @@ class _CreateSportProfileWidgetState extends State<CreateSportProfileWidget> {
     _model.txtWeightTextController ??= TextEditingController();
     _model.txtWeightFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -102,7 +102,7 @@ class _CreateSportProfileWidgetState extends State<CreateSportProfileWidget> {
                     children: [
                       Container(
                         width: double.infinity,
-                        height: 140.0,
+                        height: 64.0,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [
@@ -117,7 +117,7 @@ class _CreateSportProfileWidgetState extends State<CreateSportProfileWidget> {
                         ),
                         child: Container(
                           width: 100.0,
-                          height: 200.0,
+                          height: 179.0,
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: [
@@ -136,7 +136,7 @@ class _CreateSportProfileWidgetState extends State<CreateSportProfileWidget> {
                                 alignment: const AlignmentDirectional(0.0, 1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      25.0, 0.0, 5.0, 15.0),
+                                      12.0, 0.0, 5.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -159,7 +159,7 @@ class _CreateSportProfileWidgetState extends State<CreateSportProfileWidget> {
                                 alignment: const AlignmentDirectional(0.0, 1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 21.0),
+                                      0.0, 0.0, 0.0, 7.0),
                                   child: Text(
                                     'Create Sport Profile',
                                     style: FlutterFlowTheme.of(context)
@@ -452,8 +452,9 @@ class _CreateSportProfileWidgetState extends State<CreateSportProfileWidget> {
                                         ChipData('Other',
                                             Icons.question_mark_outlined)
                                       ],
-                                      onChanged: (val) => setState(() => _model
-                                          .ccGenderValue = val?.firstOrNull),
+                                      onChanged: (val) => safeSetState(() =>
+                                          _model.ccGenderValue =
+                                              val?.firstOrNull),
                                       selectedChipStyle: ChipStyle(
                                         backgroundColor:
                                             FlutterFlowTheme.of(context)
@@ -544,7 +545,7 @@ class _CreateSportProfileWidgetState extends State<CreateSportProfileWidget> {
                                         ChipData('Semi Pro'),
                                         ChipData('Professional')
                                       ],
-                                      onChanged: (val) => setState(() =>
+                                      onChanged: (val) => safeSetState(() =>
                                           _model.ccSkillLevelValue =
                                               val?.firstOrNull),
                                       selectedChipStyle: ChipStyle(
@@ -633,7 +634,7 @@ class _CreateSportProfileWidgetState extends State<CreateSportProfileWidget> {
                                       webGoogleMapsApiKey:
                                           'AIzaSyDrbsbCY10oRs-WNx776sSvoEDcZuKgEM4',
                                       onSelect: (place) async {
-                                        setState(() =>
+                                        safeSetState(() =>
                                             _model.ppAddressValue = place);
                                       },
                                       defaultText: 'Select Location',

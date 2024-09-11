@@ -75,14 +75,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const Auth2ProfileWidget() : const Auth2LoginWidget(),
+          appStateNotifier.loggedIn ? const HomeWidget() : const Auth2LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => appStateNotifier.loggedIn
-              ? const Auth2ProfileWidget()
-              : const Auth2LoginWidget(),
+          builder: (context, _) =>
+              appStateNotifier.loggedIn ? const HomeWidget() : const Auth2LoginWidget(),
         ),
         FFRoute(
           name: 'auth_2_Create',

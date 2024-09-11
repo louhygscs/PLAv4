@@ -72,7 +72,7 @@ class _Auth2CreateWidgetState extends State<Auth2CreateWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -108,44 +108,28 @@ class _Auth2CreateWidgetState extends State<Auth2CreateWidget>
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 22.0),
-                child: Container(
-                  width: 236.0,
-                  height: 172.0,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16.0),
-                  ),
-                  alignment: const AlignmentDirectional(0.0, 0.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: Image.asset(
-                            'assets/images/pla_logo.png',
-                            width: 166.0,
-                            height: 335.0,
-                            fit: BoxFit.contain,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+              Container(
+                width: 236.0,
+                height: 172.0,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16.0),
                 ),
-              ),
-              Text(
-                'PLA Game Matching App',
-                style: FlutterFlowTheme.of(context).displaySmall.override(
-                      fontFamily: 'Sora',
-                      color: FlutterFlowTheme.of(context).info,
-                      fontSize: 28.0,
-                      letterSpacing: 0.0,
+                alignment: const AlignmentDirectional(0.0, 0.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Image.asset(
+                        'assets/images/pla_logo.png',
+                        width: 176.0,
+                        height: 267.0,
+                        fit: BoxFit.contain,
+                      ),
                     ),
+                  ],
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -321,7 +305,7 @@ class _Auth2CreateWidgetState extends State<Auth2CreateWidget>
                                   fillColor: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   suffixIcon: InkWell(
-                                    onTap: () => setState(
+                                    onTap: () => safeSetState(
                                       () => _model.passwordVisibility =
                                           !_model.passwordVisibility,
                                     ),
@@ -424,8 +408,7 @@ class _Auth2CreateWidgetState extends State<Auth2CreateWidget>
                                   return;
                                 }
 
-                                context.goNamedAuth(
-                                    'auth_2_Profile', context.mounted);
+                                context.goNamedAuth('Home', context.mounted);
                               },
                               text: 'Continue with Google',
                               icon: const FaIcon(
@@ -475,7 +458,7 @@ class _Auth2CreateWidgetState extends State<Auth2CreateWidget>
                                       }
 
                                       context.goNamedAuth(
-                                          'auth_2_Profile', context.mounted);
+                                          'Home', context.mounted);
                                     },
                                     text: 'Continue with Apple',
                                     icon: const FaIcon(

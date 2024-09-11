@@ -40,7 +40,7 @@ class _CreateGameWidgetState extends State<CreateGameWidget> {
     _model.txtNumberPlayersTextController ??= TextEditingController();
     _model.txtNumberPlayersFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -345,7 +345,7 @@ class _CreateGameWidgetState extends State<CreateGameWidget> {
                                       drpSportCategorySportcategoryRecordList
                                           .map((e) => e.sportname)
                                           .toList(),
-                                  onChanged: (val) => setState(
+                                  onChanged: (val) => safeSetState(
                                       () => _model.drpSportCategoryValue = val),
                                   width: 405.0,
                                   height: 59.0,
@@ -419,7 +419,8 @@ class _CreateGameWidgetState extends State<CreateGameWidget> {
                                     selectedMedia.every((m) =>
                                         validateFileFormat(
                                             m.storagePath, context))) {
-                                  setState(() => _model.isDataUploading = true);
+                                  safeSetState(
+                                      () => _model.isDataUploading = true);
                                   var selectedUploadedFiles =
                                       <FFUploadedFile>[];
 
@@ -452,14 +453,14 @@ class _CreateGameWidgetState extends State<CreateGameWidget> {
                                           selectedMedia.length &&
                                       downloadUrls.length ==
                                           selectedMedia.length) {
-                                    setState(() {
+                                    safeSetState(() {
                                       _model.uploadedLocalFile =
                                           selectedUploadedFiles.first;
                                       _model.uploadedFileUrl =
                                           downloadUrls.first;
                                     });
                                   } else {
-                                    setState(() {});
+                                    safeSetState(() {});
                                     return;
                                   }
                                 }
@@ -799,7 +800,7 @@ class _CreateGameWidgetState extends State<CreateGameWidget> {
                                     ),
                                   );
 
-                                  setState(() {});
+                                  safeSetState(() {});
                                 },
                                 text: 'Save',
                                 options: FFButtonOptions(
@@ -836,7 +837,7 @@ class _CreateGameWidgetState extends State<CreateGameWidget> {
             ),
             wrapWithModel(
               model: _model.navBar1Model,
-              updateCallback: () => setState(() {}),
+              updateCallback: () => safeSetState(() {}),
               child: const NavBar1Widget(),
             ),
           ],

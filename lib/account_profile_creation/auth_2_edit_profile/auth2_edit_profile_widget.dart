@@ -51,7 +51,7 @@ class _Auth2EditProfileWidgetState extends State<Auth2EditProfileWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -76,7 +76,7 @@ class _Auth2EditProfileWidgetState extends State<Auth2EditProfileWidget>
               padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
               child: Container(
                 width: double.infinity,
-                height: 130.0,
+                height: 64.0,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
@@ -107,7 +107,7 @@ class _Auth2EditProfileWidgetState extends State<Auth2EditProfileWidget>
                     alignment: const AlignmentDirectional(-1.0, 1.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 24.0),
+                          const EdgeInsetsDirectional.fromSTEB(35.0, 0.0, 0.0, 10.0),
                       child: FlutterFlowIconButton(
                         borderColor: FlutterFlowTheme.of(context).accent4,
                         borderRadius: 12.0,
@@ -141,7 +141,7 @@ class _Auth2EditProfileWidgetState extends State<Auth2EditProfileWidget>
                 ),
                 child: wrapWithModel(
                   model: _model.editProfileAuth2Model,
-                  updateCallback: () => setState(() {}),
+                  updateCallback: () => safeSetState(() {}),
                   child: EditProfileAuth2Widget(
                     title: 'Edit Profile',
                     confirmButtonText: 'Save Changes',

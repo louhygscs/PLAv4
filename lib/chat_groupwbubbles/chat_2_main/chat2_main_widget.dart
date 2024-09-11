@@ -27,7 +27,7 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
     super.initState();
     _model = createModel(context, () => Chat2MainModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -944,10 +944,13 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                   },
                 ),
               ),
-              wrapWithModel(
-                model: _model.navBar1Model,
-                updateCallback: () => setState(() {}),
-                child: const NavBar1Widget(),
+              Align(
+                alignment: const AlignmentDirectional(0.0, 2.0),
+                child: wrapWithModel(
+                  model: _model.navBar1Model,
+                  updateCallback: () => safeSetState(() {}),
+                  child: const NavBar1Widget(),
+                ),
               ),
             ],
           ),

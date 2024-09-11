@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class CreateGameModel extends FlutterFlowModel<CreateGameWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for txtGameTitle widget.
   FocusNode? txtGameTitleFocusNode;

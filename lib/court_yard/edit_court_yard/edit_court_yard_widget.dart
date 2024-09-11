@@ -31,7 +31,7 @@ class _EditCourtYardWidgetState extends State<EditCourtYardWidget> {
 
     _model.txtSportVenueNameFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -336,7 +336,7 @@ class _EditCourtYardWidgetState extends State<EditCourtYardWidget> {
                                         webGoogleMapsApiKey:
                                             'AIzaSyDrbsbCY10oRs-WNx776sSvoEDcZuKgEM4',
                                         onSelect: (place) async {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.placePickerValue = place);
                                         },
                                         defaultText: 'Select Location',

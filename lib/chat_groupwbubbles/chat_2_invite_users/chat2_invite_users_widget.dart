@@ -42,15 +42,15 @@ class _Chat2InviteUsersWidgetState extends State<Chat2InviteUsersWidget> {
         // addChatUsers_ToList
         _model.friendsList =
             widget.chatRef!.users.toList().cast<DocumentReference>();
-        setState(() {});
+        safeSetState(() {});
       } else {
         // addUser_ToList
         _model.addToFriendsList(currentUserReference!);
-        setState(() {});
+        safeSetState(() {});
       }
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -312,7 +312,7 @@ class _Chat2InviteUsersWidgetState extends State<Chat2InviteUsersWidget> {
                                                               .reference) ==
                                                       true,
                                           onChanged: (newValue) async {
-                                            setState(() =>
+                                            safeSetState(() =>
                                                 _model.checkboxListTileValueMap[
                                                         listViewUsersRecord] =
                                                     newValue!);
@@ -321,13 +321,13 @@ class _Chat2InviteUsersWidgetState extends State<Chat2InviteUsersWidget> {
                                               _model.addToFriendsList(
                                                   listViewUsersRecord
                                                       .reference);
-                                              setState(() {});
+                                              safeSetState(() {});
                                             } else {
                                               // removeUsser
                                               _model.removeFromFriendsList(
                                                   listViewUsersRecord
                                                       .reference);
-                                              setState(() {});
+                                              safeSetState(() {});
                                             }
                                           },
                                           title: Text(
@@ -519,7 +519,7 @@ class _Chat2InviteUsersWidgetState extends State<Chat2InviteUsersWidget> {
                         );
                       }
 
-                      setState(() {});
+                      safeSetState(() {});
                     },
                     text: widget.chatRef != null
                         ? 'Add to Chat'

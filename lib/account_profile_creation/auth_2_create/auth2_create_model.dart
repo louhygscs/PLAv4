@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 class Auth2CreateModel extends FlutterFlowModel<Auth2CreateWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for emailAddress widget.
   FocusNode? emailAddressFocusNode;
   TextEditingController? emailAddressTextController;

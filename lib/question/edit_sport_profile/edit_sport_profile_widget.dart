@@ -35,7 +35,7 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
 
     _model.txtWeightFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -465,8 +465,9 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                                         ChipData('Other',
                                             Icons.question_mark_outlined)
                                       ],
-                                      onChanged: (val) => setState(() => _model
-                                          .ccGenderValue = val?.firstOrNull),
+                                      onChanged: (val) => safeSetState(() =>
+                                          _model.ccGenderValue =
+                                              val?.firstOrNull),
                                       selectedChipStyle: ChipStyle(
                                         backgroundColor:
                                             FlutterFlowTheme.of(context)
@@ -561,7 +562,7 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                                         ChipData('Semi Pro'),
                                         ChipData('Professional')
                                       ],
-                                      onChanged: (val) => setState(() =>
+                                      onChanged: (val) => safeSetState(() =>
                                           _model.ccSkillLevelValue =
                                               val?.firstOrNull),
                                       selectedChipStyle: ChipStyle(
@@ -655,7 +656,7 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                                       webGoogleMapsApiKey:
                                           'AIzaSyDrbsbCY10oRs-WNx776sSvoEDcZuKgEM4',
                                       onSelect: (place) async {
-                                        setState(() =>
+                                        safeSetState(() =>
                                             _model.ppAddressValue = place);
                                       },
                                       defaultText: 'Select Location',

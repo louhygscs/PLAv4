@@ -97,9 +97,11 @@ class _FFPlacePickerState extends State<FlutterFlowPlacePicker> {
     );
     PlacesDetailsResponse detail =
         await places.getDetailsByPlaceId(placeId, language: languageCode);
-    setState(() {
-      _selectedPlace = detail.result.name;
-    });
+    if (mounted) {
+      setState(() {
+        _selectedPlace = detail.result.name;
+      });
+    }
 
     widget.onSelect(
       FFPlace(

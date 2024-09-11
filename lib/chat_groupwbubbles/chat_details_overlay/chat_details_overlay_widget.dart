@@ -37,7 +37,7 @@ class _ChatDetailsOverlayWidgetState extends State<ChatDetailsOverlayWidget> {
     super.initState();
     _model = createModel(context, () => ChatDetailsOverlayModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -204,7 +204,7 @@ class _ChatDetailsOverlayWidgetState extends State<ChatDetailsOverlayWidget> {
                                         chatUsersItem.id,
                                         chatUsersIndex,
                                       ),
-                                      updateCallback: () => setState(() {}),
+                                      updateCallback: () => safeSetState(() {}),
                                       updateOnChange: true,
                                       child: UserListSmallWidget(
                                         key: Key(
@@ -240,7 +240,7 @@ class _ChatDetailsOverlayWidgetState extends State<ChatDetailsOverlayWidget> {
                             ),
                             child: wrapWithModel(
                               model: _model.deleteDialogModel,
-                              updateCallback: () => setState(() {}),
+                              updateCallback: () => safeSetState(() {}),
                               updateOnChange: true,
                               child: DeleteDialogWidget(
                                 chatList: widget.chatRef,

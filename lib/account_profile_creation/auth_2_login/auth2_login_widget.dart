@@ -72,7 +72,7 @@ class _Auth2LoginWidgetState extends State<Auth2LoginWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -112,7 +112,7 @@ class _Auth2LoginWidgetState extends State<Auth2LoginWidget>
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 10.0),
                   child: Container(
                     width: double.infinity,
-                    height: 184.0,
+                    height: 138.0,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16.0),
                     ),
@@ -134,24 +134,13 @@ class _Auth2LoginWidgetState extends State<Auth2LoginWidget>
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: Image.asset(
                                     'assets/images/pla_logo.png',
-                                    width: 152.0,
-                                    height: 133.0,
+                                    width: 117.0,
+                                    height: 128.0,
                                     fit: BoxFit.contain,
                                     alignment: const Alignment(0.0, 0.0),
                                   ),
                                 ),
                               ),
-                            ),
-                            Text(
-                              'PLA Game Matching App',
-                              style: FlutterFlowTheme.of(context)
-                                  .displaySmall
-                                  .override(
-                                    fontFamily: 'Sora',
-                                    color: FlutterFlowTheme.of(context).info,
-                                    fontSize: 28.0,
-                                    letterSpacing: 0.0,
-                                  ),
                             ),
                           ],
                         ),
@@ -338,7 +327,7 @@ class _Auth2LoginWidgetState extends State<Auth2LoginWidget>
                                     fillColor: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     suffixIcon: InkWell(
-                                      onTap: () => setState(
+                                      onTap: () => safeSetState(
                                         () => _model.passwordVisibility =
                                             !_model.passwordVisibility,
                                       ),
@@ -384,8 +373,7 @@ class _Auth2LoginWidgetState extends State<Auth2LoginWidget>
                                     return;
                                   }
 
-                                  context.goNamedAuth(
-                                      'auth_2_Profile', context.mounted);
+                                  context.goNamedAuth('Home', context.mounted);
                                 },
                                 text: 'Sign In',
                                 options: FFButtonOptions(
@@ -441,8 +429,7 @@ class _Auth2LoginWidgetState extends State<Auth2LoginWidget>
                                     return;
                                   }
 
-                                  context.goNamedAuth(
-                                      'auth_2_Profile', context.mounted);
+                                  context.goNamedAuth('Home', context.mounted);
                                 },
                                 text: 'Continue with Google',
                                 icon: const FaIcon(
@@ -493,7 +480,7 @@ class _Auth2LoginWidgetState extends State<Auth2LoginWidget>
                                         }
 
                                         context.goNamedAuth(
-                                            'auth_2_Profile', context.mounted);
+                                            'Home', context.mounted);
                                       },
                                       text: 'Continue with Apple',
                                       icon: const FaIcon(

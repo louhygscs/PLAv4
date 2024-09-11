@@ -31,7 +31,6 @@ class Chat2DetailsModel extends FlutterFlowModel<Chat2DetailsWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for chat_ThreadComponent component.
   late ChatThreadComponentModel chatThreadComponentModel;
 

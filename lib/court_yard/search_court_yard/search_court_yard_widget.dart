@@ -31,13 +31,13 @@ class _SearchCourtYardWidgetState extends State<SearchCourtYardWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().searchActive = false;
-      setState(() {});
+      safeSetState(() {});
     });
 
     _model.txtSearchSportVenueTextController ??= TextEditingController();
     _model.txtSearchSportVenueFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -175,7 +175,7 @@ class _SearchCourtYardWidgetState extends State<SearchCourtYardWidget> {
                   ),
                   Container(
                     width: double.infinity,
-                    height: 707.0,
+                    height: 636.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
@@ -234,7 +234,7 @@ class _SearchCourtYardWidgetState extends State<SearchCourtYardWidget> {
                                             .toList();
                                       });
                                       FFAppState().searchActive = true;
-                                      setState(() {});
+                                      safeSetState(() {});
                                     },
                                   ),
                                   autofocus: true,
@@ -303,12 +303,12 @@ class _SearchCourtYardWidgetState extends State<SearchCourtYardWidget> {
                                   0.0, 0.0, 12.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
-                                  setState(() {
+                                  safeSetState(() {
                                     _model.txtSearchSportVenueTextController
                                         ?.clear();
                                   });
                                   FFAppState().searchActive = false;
-                                  setState(() {});
+                                  safeSetState(() {});
                                 },
                                 text: 'Clear',
                                 options: FFButtonOptions(
@@ -791,7 +791,7 @@ class _SearchCourtYardWidgetState extends State<SearchCourtYardWidget> {
                   ),
                   wrapWithModel(
                     model: _model.navBar1Model,
-                    updateCallback: () => setState(() {}),
+                    updateCallback: () => safeSetState(() {}),
                     child: const NavBar1Widget(),
                   ),
                 ],

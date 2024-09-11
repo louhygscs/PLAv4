@@ -18,6 +18,8 @@ Future<Map<String, dynamic>> makeCloudCall(
       'Details: ${e.details}\n'
       'Message: ${e.message}',
     );
-      return {};
+  } catch (e) {
+    print('Cloud call error: $e');
   }
+  return {};
 }

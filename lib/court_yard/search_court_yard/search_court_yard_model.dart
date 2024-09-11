@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class SearchCourtYardModel extends FlutterFlowModel<SearchCourtYardWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for txtSearchSportVenue widget.
   FocusNode? txtSearchSportVenueFocusNode;
   TextEditingController? txtSearchSportVenueTextController;

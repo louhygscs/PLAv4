@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class Auth2ProfileModel extends FlutterFlowModel<Auth2ProfileWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Firestore Query - Query a collection] action in contentView_EditQuestion widget.
   UserquestionRecord? checkUserSportProfile;
   // Model for NavBar1 component.

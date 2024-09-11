@@ -27,7 +27,7 @@ class _DetailsCourtYardWidgetState extends State<DetailsCourtYardWidget> {
     super.initState();
     _model = createModel(context, () => DetailsCourtYardModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

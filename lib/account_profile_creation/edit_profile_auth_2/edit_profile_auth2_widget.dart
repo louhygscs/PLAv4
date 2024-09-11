@@ -51,7 +51,7 @@ class _EditProfileAuth2WidgetState extends State<EditProfileAuth2Widget> {
         text: valueOrDefault(currentUserDocument?.shortDescription, ''));
     _model.myBioFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -161,7 +161,7 @@ class _EditProfileAuth2WidgetState extends State<EditProfileAuth2Widget> {
                   if (selectedMedia != null &&
                       selectedMedia.every(
                           (m) => validateFileFormat(m.storagePath, context))) {
-                    setState(() => _model.isDataUploading = true);
+                    safeSetState(() => _model.isDataUploading = true);
                     var selectedUploadedFiles = <FFUploadedFile>[];
 
                     var downloadUrls = <String>[];
@@ -195,13 +195,13 @@ class _EditProfileAuth2WidgetState extends State<EditProfileAuth2Widget> {
                     }
                     if (selectedUploadedFiles.length == selectedMedia.length &&
                         downloadUrls.length == selectedMedia.length) {
-                      setState(() {
+                      safeSetState(() {
                         _model.uploadedLocalFile = selectedUploadedFiles.first;
                         _model.uploadedFileUrl = downloadUrls.first;
                       });
                       showUploadMessage(context, 'Success!');
                     } else {
-                      setState(() {});
+                      safeSetState(() {});
                       showUploadMessage(context, 'Failed to upload data');
                       return;
                     }
@@ -313,7 +313,8 @@ class _EditProfileAuth2WidgetState extends State<EditProfileAuth2Widget> {
                   'Mid-Manager',
                   'Employee'
                 ],
-                onChanged: (val) => setState(() => _model.dropDownValue = val),
+                onChanged: (val) =>
+                    safeSetState(() => _model.dropDownValue = val),
                 width: double.infinity,
                 height: 44.0,
                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(

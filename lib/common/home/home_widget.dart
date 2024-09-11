@@ -27,7 +27,7 @@ class _HomeWidgetState extends State<HomeWidget> {
     super.initState();
     _model = createModel(context, () => HomeModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -77,64 +77,67 @@ class _HomeWidgetState extends State<HomeWidget> {
                 children: [
                   Stack(
                     children: [
-                      Container(
-                        width: double.infinity,
-                        height: 140.0,
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              FlutterFlowTheme.of(context).primary,
-                              FlutterFlowTheme.of(context).secondary,
-                              FlutterFlowTheme.of(context).tertiary
-                            ],
-                            stops: const [0.0, 0.5, 1.0],
-                            begin: const AlignmentDirectional(-1.0, -1.0),
-                            end: const AlignmentDirectional(1.0, 1.0),
-                          ),
-                        ),
+                      Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Container(
-                          width: 100.0,
-                          height: 200.0,
+                          width: double.infinity,
+                          height: 140.0,
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: [
                                 FlutterFlowTheme.of(context).primary,
+                                FlutterFlowTheme.of(context).secondary,
                                 FlutterFlowTheme.of(context).tertiary
                               ],
-                              stops: const [0.0, 1.0],
-                              begin: const AlignmentDirectional(0.0, -1.0),
-                              end: const AlignmentDirectional(0, 1.0),
+                              stops: const [0.0, 0.5, 1.0],
+                              begin: const AlignmentDirectional(-1.0, -1.0),
+                              end: const AlignmentDirectional(1.0, 1.0),
                             ),
                           ),
-                          child: Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  25.0, 0.0, 0.0, 0.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Align(
-                                    alignment: const AlignmentDirectional(0.0, 1.0),
-                                    child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 21.0),
-                                      child: Text(
-                                        'Welcome to PLA',
-                                        style: FlutterFlowTheme.of(context)
-                                            .titleLarge
-                                            .override(
-                                              fontFamily: 'Sora',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .info,
-                                              fontSize: 28.0,
-                                              letterSpacing: 0.0,
-                                            ),
+                          child: Container(
+                            width: 100.0,
+                            height: 200.0,
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  FlutterFlowTheme.of(context).primary,
+                                  FlutterFlowTheme.of(context).tertiary
+                                ],
+                                stops: const [0.0, 1.0],
+                                begin: const AlignmentDirectional(0.0, -1.0),
+                                end: const AlignmentDirectional(0, 1.0),
+                              ),
+                            ),
+                            child: Align(
+                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    25.0, 0.0, 0.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Align(
+                                      alignment: const AlignmentDirectional(0.0, 1.0),
+                                      child: Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 21.0),
+                                        child: Text(
+                                          'Welcome to PLA',
+                                          style: FlutterFlowTheme.of(context)
+                                              .titleLarge
+                                              .override(
+                                                fontFamily: 'Sora',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .info,
+                                                fontSize: 28.0,
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -291,8 +294,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               .toList()
                                               .map((label) => ChipData(label))
                                               .toList(),
-                                      onChanged: (val) => setState(() => _model
-                                          .choiceChipsValue = val?.firstOrNull),
+                                      onChanged: (val) => safeSetState(() =>
+                                          _model.choiceChipsValue =
+                                              val?.firstOrNull),
                                       selectedChipStyle: ChipStyle(
                                         backgroundColor:
                                             FlutterFlowTheme.of(context)
@@ -566,7 +570,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                   ),
                   wrapWithModel(
                     model: _model.navBar1Model,
-                    updateCallback: () => setState(() {}),
+                    updateCallback: () => safeSetState(() {}),
                     child: const NavBar1Widget(),
                   ),
                 ],

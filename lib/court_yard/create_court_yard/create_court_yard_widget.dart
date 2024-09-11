@@ -30,7 +30,7 @@ class _CreateCourtYardWidgetState extends State<CreateCourtYardWidget> {
     _model.txtSportVenueNameTextController ??= TextEditingController();
     _model.txtSportVenueNameFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -185,7 +185,7 @@ class _CreateCourtYardWidgetState extends State<CreateCourtYardWidget> {
                                         selectedMedia.every((m) =>
                                             validateFileFormat(
                                                 m.storagePath, context))) {
-                                      setState(
+                                      safeSetState(
                                           () => _model.isDataUploading = true);
                                       var selectedUploadedFiles =
                                           <FFUploadedFile>[];
@@ -220,14 +220,14 @@ class _CreateCourtYardWidgetState extends State<CreateCourtYardWidget> {
                                               selectedMedia.length &&
                                           downloadUrls.length ==
                                               selectedMedia.length) {
-                                        setState(() {
+                                        safeSetState(() {
                                           _model.uploadedLocalFile =
                                               selectedUploadedFiles.first;
                                           _model.uploadedFileUrl =
                                               downloadUrls.first;
                                         });
                                       } else {
-                                        setState(() {});
+                                        safeSetState(() {});
                                         return;
                                       }
                                     }
@@ -352,7 +352,7 @@ class _CreateCourtYardWidgetState extends State<CreateCourtYardWidget> {
                                     webGoogleMapsApiKey:
                                         'AIzaSyDrbsbCY10oRs-WNx776sSvoEDcZuKgEM4',
                                     onSelect: (place) async {
-                                      setState(() =>
+                                      safeSetState(() =>
                                           _model.placePickerValue = place);
                                     },
                                     defaultText: 'Select Location',

@@ -21,7 +21,7 @@ class _GameSettingWidgetState extends State<GameSettingWidget> {
     super.initState();
     _model = createModel(context, () => GameSettingModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -1,4 +1,3 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'header_logo_model.dart';
@@ -25,7 +24,7 @@ class _HeaderLogoWidgetState extends State<HeaderLogoWidget> {
     super.initState();
     _model = createModel(context, () => HeaderLogoModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -51,24 +50,10 @@ class _HeaderLogoWidgetState extends State<HeaderLogoWidget> {
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image.asset(
                     'assets/images/pla_logo.png',
-                    width: 221.0,
+                    width: 288.0,
                     height: 178.0,
                     fit: BoxFit.contain,
                   ),
-                ),
-              ),
-            ),
-            Align(
-              alignment: const AlignmentDirectional(0.0, 10.0),
-              child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                child: Text(
-                  'PLA Gaming Matching App',
-                  style: FlutterFlowTheme.of(context).titleMedium.override(
-                        fontFamily: 'Inter',
-                        fontSize: 22.0,
-                        letterSpacing: 0.0,
-                      ),
                 ),
               ),
             ),

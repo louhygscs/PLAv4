@@ -75,7 +75,7 @@ class _Auth2ProfileWidgetState extends State<Auth2ProfileWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -333,7 +333,7 @@ class _Auth2ProfileWidgetState extends State<Auth2ProfileWidget>
                             context.pushNamed('create_SportProfile');
                           }
 
-                          setState(() {});
+                          safeSetState(() {});
                         },
                         child: Container(
                           width: double.infinity,
@@ -589,7 +589,7 @@ class _Auth2ProfileWidgetState extends State<Auth2ProfileWidget>
             ),
             wrapWithModel(
               model: _model.navBar1Model,
-              updateCallback: () => setState(() {}),
+              updateCallback: () => safeSetState(() {}),
               child: const NavBar1Widget(),
             ),
           ],

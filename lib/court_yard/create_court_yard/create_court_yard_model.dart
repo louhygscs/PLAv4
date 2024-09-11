@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 class CreateCourtYardModel extends FlutterFlowModel<CreateCourtYardWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
