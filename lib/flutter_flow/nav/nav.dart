@@ -229,6 +229,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               collectionNamePath: ['gamematch'],
             ),
           ),
+        ),
+        FFRoute(
+          name: 'WaitingPlayers',
+          path: '/waitingPlayers',
+          builder: (context, params) => const WaitingPlayersWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

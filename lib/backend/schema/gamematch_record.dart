@@ -65,6 +65,16 @@ class GamematchRecord extends FirestoreRecord {
   DocumentReference? get sportCategory => _sportCategory;
   bool hasSportCategory() => _sportCategory != null;
 
+  // "fee" field.
+  double? _fee;
+  double get fee => _fee ?? 0.0;
+  bool hasFee() => _fee != null;
+
+  // "slotleft" field.
+  int? _slotleft;
+  int get slotleft => _slotleft ?? 0;
+  bool hasSlotleft() => _slotleft != null;
+
   void _initializeFields() {
     _title = snapshotData['title'] as String?;
     _description = snapshotData['description'] as String?;
@@ -76,6 +86,8 @@ class GamematchRecord extends FirestoreRecord {
     _userId = snapshotData['user_id'] as DocumentReference?;
     _requiredPlayer = castToType<int>(snapshotData['required_player']);
     _sportCategory = snapshotData['sport_category'] as DocumentReference?;
+    _fee = castToType<double>(snapshotData['fee']);
+    _slotleft = castToType<int>(snapshotData['slotleft']);
   }
 
   static CollectionReference get collection =>
@@ -123,6 +135,8 @@ Map<String, dynamic> createGamematchRecordData({
   DocumentReference? userId,
   int? requiredPlayer,
   DocumentReference? sportCategory,
+  double? fee,
+  int? slotleft,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -136,6 +150,8 @@ Map<String, dynamic> createGamematchRecordData({
       'user_id': userId,
       'required_player': requiredPlayer,
       'sport_category': sportCategory,
+      'fee': fee,
+      'slotleft': slotleft,
     }.withoutNulls,
   );
 
@@ -156,7 +172,9 @@ class GamematchRecordDocumentEquality implements Equality<GamematchRecord> {
         e1?.closeTime == e2?.closeTime &&
         e1?.userId == e2?.userId &&
         e1?.requiredPlayer == e2?.requiredPlayer &&
-        e1?.sportCategory == e2?.sportCategory;
+        e1?.sportCategory == e2?.sportCategory &&
+        e1?.fee == e2?.fee &&
+        e1?.slotleft == e2?.slotleft;
   }
 
   @override
@@ -170,7 +188,9 @@ class GamematchRecordDocumentEquality implements Equality<GamematchRecord> {
         e?.closeTime,
         e?.userId,
         e?.requiredPlayer,
-        e?.sportCategory
+        e?.sportCategory,
+        e?.fee,
+        e?.slotleft
       ]);
 
   @override

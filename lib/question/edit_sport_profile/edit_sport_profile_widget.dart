@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/nav_bar1_widget.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_place_picker.dart';
 import '/flutter_flow/flutter_flow_static_map.dart';
@@ -96,81 +97,65 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                 children: [
                   Stack(
                     children: [
-                      Container(
-                        width: double.infinity,
-                        height: 140.0,
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              FlutterFlowTheme.of(context).primary,
-                              FlutterFlowTheme.of(context).secondary,
-                              FlutterFlowTheme.of(context).tertiary
-                            ],
-                            stops: const [0.0, 0.5, 1.0],
-                            begin: const AlignmentDirectional(-1.0, -1.0),
-                            end: const AlignmentDirectional(1.0, 1.0),
-                          ),
-                        ),
+                      Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Container(
-                          width: 100.0,
-                          height: 200.0,
+                          width: double.infinity,
+                          height: 67.0,
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: [
                                 FlutterFlowTheme.of(context).primary,
+                                FlutterFlowTheme.of(context).secondary,
                                 FlutterFlowTheme.of(context).tertiary
                               ],
-                              stops: const [0.0, 1.0],
-                              begin: const AlignmentDirectional(0.0, -1.0),
-                              end: const AlignmentDirectional(0, 1.0),
+                              stops: const [0.0, 0.5, 1.0],
+                              begin: const AlignmentDirectional(-1.0, -1.0),
+                              end: const AlignmentDirectional(1.0, 1.0),
                             ),
                           ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Align(
-                                alignment: const AlignmentDirectional(0.0, 1.0),
-                                child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      25.0, 0.0, 5.0, 15.0),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      // NavBack
-                                      context.safePop();
-                                    },
-                                    child: Icon(
-                                      Icons.navigate_before,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      size: 48.0,
+                          child: Container(
+                            width: 100.0,
+                            height: 200.0,
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  FlutterFlowTheme.of(context).primary,
+                                  FlutterFlowTheme.of(context).tertiary
+                                ],
+                                stops: const [0.0, 1.0],
+                                begin: const AlignmentDirectional(0.0, -1.0),
+                                end: const AlignmentDirectional(0, 1.0),
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Align(
+                                  alignment: const AlignmentDirectional(0.0, 1.0),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 0.0, 5.0, 10.0),
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        // NavBack
+                                        context.safePop();
+                                      },
+                                      child: Icon(
+                                        Icons.navigate_before,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                        size: 48.0,
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              Align(
-                                alignment: const AlignmentDirectional(0.0, 1.0),
-                                child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 21.0),
-                                  child: Text(
-                                    'Edit Sport Profile',
-                                    style: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .override(
-                                          fontFamily: 'Sora',
-                                          color:
-                                              FlutterFlowTheme.of(context).info,
-                                          fontSize: 28.0,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -178,7 +163,7 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                   ),
                   Container(
                     width: double.infinity,
-                    height: 700.0,
+                    height: 712.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
@@ -818,6 +803,11 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                         ),
                       ],
                     ),
+                  ),
+                  wrapWithModel(
+                    model: _model.navBar1Model,
+                    updateCallback: () => safeSetState(() {}),
+                    child: const NavBar1Widget(),
                   ),
                 ],
               ),

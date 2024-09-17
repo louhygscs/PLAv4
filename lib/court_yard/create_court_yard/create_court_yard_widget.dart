@@ -1,6 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/components/nav_bar1_widget.dart';
 import '/flutter_flow/flutter_flow_place_picker.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -60,7 +61,7 @@ class _CreateCourtYardWidgetState extends State<CreateCourtYardWidget> {
                 children: [
                   Container(
                     width: double.infinity,
-                    height: 140.0,
+                    height: 67.0,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
@@ -75,7 +76,7 @@ class _CreateCourtYardWidgetState extends State<CreateCourtYardWidget> {
                     ),
                     child: Container(
                       width: 100.0,
-                      height: 100.0,
+                      height: 200.0,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           colors: [
@@ -94,7 +95,7 @@ class _CreateCourtYardWidgetState extends State<CreateCourtYardWidget> {
                             alignment: const AlignmentDirectional(0.0, 1.0),
                             child: Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  25.0, 0.0, 5.0, 15.0),
+                                  25.0, 0.0, 5.0, 10.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -113,24 +114,6 @@ class _CreateCourtYardWidgetState extends State<CreateCourtYardWidget> {
                               ),
                             ),
                           ),
-                          Align(
-                            alignment: const AlignmentDirectional(0.0, 1.0),
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 21.0),
-                              child: Text(
-                                'Create Sport Venue',
-                                style: FlutterFlowTheme.of(context)
-                                    .titleLarge
-                                    .override(
-                                      fontFamily: 'Sora',
-                                      color: FlutterFlowTheme.of(context).info,
-                                      fontSize: 28.0,
-                                      letterSpacing: 0.0,
-                                    ),
-                              ),
-                            ),
-                          ),
                         ],
                       ),
                     ),
@@ -139,7 +122,7 @@ class _CreateCourtYardWidgetState extends State<CreateCourtYardWidget> {
               ),
               Container(
                 width: double.infinity,
-                height: 742.0,
+                height: 715.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                 ),
@@ -680,6 +663,11 @@ class _CreateCourtYardWidgetState extends State<CreateCourtYardWidget> {
                     ),
                   ),
                 ),
+              ),
+              wrapWithModel(
+                model: _model.navBar1Model,
+                updateCallback: () => safeSetState(() {}),
+                child: const NavBar1Widget(),
               ),
             ],
           ),

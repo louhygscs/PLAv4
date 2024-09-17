@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/components/nav_bar1_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -94,7 +95,7 @@ class _DetailsCourtYardWidgetState extends State<DetailsCourtYardWidget> {
                     children: [
                       Container(
                         width: double.infinity,
-                        height: 140.0,
+                        height: 67.0,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [
@@ -109,7 +110,7 @@ class _DetailsCourtYardWidgetState extends State<DetailsCourtYardWidget> {
                         ),
                         child: Container(
                           width: 100.0,
-                          height: 100.0,
+                          height: 200.0,
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: [
@@ -128,7 +129,7 @@ class _DetailsCourtYardWidgetState extends State<DetailsCourtYardWidget> {
                                 alignment: const AlignmentDirectional(0.0, 1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      25.0, 0.0, 5.0, 15.0),
+                                      25.0, 0.0, 5.0, 10.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -151,7 +152,7 @@ class _DetailsCourtYardWidgetState extends State<DetailsCourtYardWidget> {
                                 alignment: const AlignmentDirectional(0.0, 1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 21.0),
+                                      0.0, 0.0, 0.0, 17.0),
                                   child: Text(
                                     valueOrDefault<String>(
                                       widget.paramVenueName,
@@ -180,7 +181,7 @@ class _DetailsCourtYardWidgetState extends State<DetailsCourtYardWidget> {
                     children: [
                       Container(
                         width: double.infinity,
-                        height: 728.0,
+                        height: 715.0,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -259,14 +260,18 @@ class _DetailsCourtYardWidgetState extends State<DetailsCourtYardWidget> {
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.network(
-                                        detailsCourtYardSportvenueRecord!
-                                            .venuePhoto,
-                                        width: 390.0,
-                                        height: 214.0,
-                                        fit: BoxFit.cover,
+                                    Padding(
+                                      padding: const EdgeInsets.all(12.0),
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.network(
+                                          detailsCourtYardSportvenueRecord!
+                                              .venuePhoto,
+                                          width: 390.0,
+                                          height: 214.0,
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
                                     ),
                                     Padding(
@@ -408,6 +413,11 @@ class _DetailsCourtYardWidgetState extends State<DetailsCourtYardWidget> {
                         ),
                       ),
                     ],
+                  ),
+                  wrapWithModel(
+                    model: _model.navBar1Model,
+                    updateCallback: () => safeSetState(() {}),
+                    child: const NavBar1Widget(),
                   ),
                 ],
               ),

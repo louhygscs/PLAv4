@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/nav_bar1_widget.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_place_picker.dart';
 import '/flutter_flow/flutter_flow_static_map.dart';
@@ -117,7 +118,7 @@ class _CreateSportProfileWidgetState extends State<CreateSportProfileWidget> {
                         ),
                         child: Container(
                           width: 100.0,
-                          height: 179.0,
+                          height: 200.0,
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: [
@@ -155,25 +156,6 @@ class _CreateSportProfileWidgetState extends State<CreateSportProfileWidget> {
                                   ),
                                 ),
                               ),
-                              Align(
-                                alignment: const AlignmentDirectional(0.0, 1.0),
-                                child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 7.0),
-                                  child: Text(
-                                    'Create Sport Profile',
-                                    style: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .override(
-                                          fontFamily: 'Sora',
-                                          color:
-                                              FlutterFlowTheme.of(context).info,
-                                          fontSize: 28.0,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ),
-                              ),
                             ],
                           ),
                         ),
@@ -182,7 +164,7 @@ class _CreateSportProfileWidgetState extends State<CreateSportProfileWidget> {
                   ),
                   Container(
                     width: double.infinity,
-                    height: 742.0,
+                    height: 711.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
@@ -796,6 +778,11 @@ class _CreateSportProfileWidgetState extends State<CreateSportProfileWidget> {
                         ),
                       ],
                     ),
+                  ),
+                  wrapWithModel(
+                    model: _model.navBar1Model,
+                    updateCallback: () => safeSetState(() {}),
+                    child: const NavBar1Widget(),
                   ),
                 ],
               ),

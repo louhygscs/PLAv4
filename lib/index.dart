@@ -36,3 +36,5 @@ export '/game/create_game/create_game_widget.dart' show CreateGameWidget;
 export '/common/home/home_widget.dart' show HomeWidget;
 export '/game/game_setting/game_setting_widget.dart' show GameSettingWidget;
 export '/game/game_map/game_map_widget.dart' show GameMapWidget;
+export '/common/waiting_players/waiting_players_widget.dart'
+    show WaitingPlayersWidget;

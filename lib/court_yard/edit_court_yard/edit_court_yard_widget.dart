@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/components/nav_bar1_widget.dart';
 import '/flutter_flow/flutter_flow_place_picker.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -98,7 +99,7 @@ class _EditCourtYardWidgetState extends State<EditCourtYardWidget> {
                     children: [
                       Container(
                         width: double.infinity,
-                        height: 140.0,
+                        height: 67.0,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [
@@ -132,7 +133,7 @@ class _EditCourtYardWidgetState extends State<EditCourtYardWidget> {
                                 alignment: const AlignmentDirectional(0.0, 1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      25.0, 0.0, 5.0, 15.0),
+                                      25.0, 0.0, 5.0, 10.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -151,25 +152,6 @@ class _EditCourtYardWidgetState extends State<EditCourtYardWidget> {
                                   ),
                                 ),
                               ),
-                              Align(
-                                alignment: const AlignmentDirectional(0.0, 1.0),
-                                child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 21.0),
-                                  child: Text(
-                                    'Edit Sport Venue',
-                                    style: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .override(
-                                          fontFamily: 'Sora',
-                                          color:
-                                              FlutterFlowTheme.of(context).info,
-                                          fontSize: 28.0,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ),
-                              ),
                             ],
                           ),
                         ),
@@ -178,7 +160,7 @@ class _EditCourtYardWidgetState extends State<EditCourtYardWidget> {
                   ),
                   Container(
                     width: double.infinity,
-                    height: 742.0,
+                    height: 715.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
@@ -199,8 +181,7 @@ class _EditCourtYardWidgetState extends State<EditCourtYardWidget> {
                                   Align(
                                     alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 15.0),
+                                      padding: const EdgeInsets.all(12.0),
                                       child: ClipRRect(
                                         borderRadius:
                                             BorderRadius.circular(8.0),
@@ -701,6 +682,11 @@ class _EditCourtYardWidgetState extends State<EditCourtYardWidget> {
                         ),
                       ),
                     ),
+                  ),
+                  wrapWithModel(
+                    model: _model.navBar1Model,
+                    updateCallback: () => safeSetState(() {}),
+                    child: const NavBar1Widget(),
                   ),
                 ],
               ),

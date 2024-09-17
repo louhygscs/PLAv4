@@ -64,7 +64,7 @@ class _CreateGameWidgetState extends State<CreateGameWidget> {
               children: [
                 Container(
                   width: double.infinity,
-                  height: 140.0,
+                  height: 67.0,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
@@ -98,7 +98,7 @@ class _CreateGameWidgetState extends State<CreateGameWidget> {
                           alignment: const AlignmentDirectional(0.0, 1.0),
                           child: Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                25.0, 0.0, 5.0, 15.0),
+                                25.0, 0.0, 5.0, 10.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -117,24 +117,6 @@ class _CreateGameWidgetState extends State<CreateGameWidget> {
                             ),
                           ),
                         ),
-                        Align(
-                          alignment: const AlignmentDirectional(0.0, 1.0),
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 21.0),
-                            child: Text(
-                              'Create Game',
-                              style: FlutterFlowTheme.of(context)
-                                  .titleLarge
-                                  .override(
-                                    fontFamily: 'Sora',
-                                    color: FlutterFlowTheme.of(context).info,
-                                    fontSize: 28.0,
-                                    letterSpacing: 0.0,
-                                  ),
-                            ),
-                          ),
-                        ),
                       ],
                     ),
                   ),
@@ -143,7 +125,7 @@ class _CreateGameWidgetState extends State<CreateGameWidget> {
             ),
             Container(
               width: double.infinity,
-              height: 642.0,
+              height: 711.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
               ),
@@ -783,6 +765,10 @@ class _CreateGameWidgetState extends State<CreateGameWidget> {
                                             .text),
                                         userId: currentUserReference,
                                         sportCategory: _model.selectedDocRef,
+                                        fee: 0.0,
+                                        slotleft: int.tryParse(_model
+                                            .txtNumberPlayersTextController
+                                            .text),
                                       ));
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
@@ -799,6 +785,8 @@ class _CreateGameWidgetState extends State<CreateGameWidget> {
                                               .secondary,
                                     ),
                                   );
+
+                                  context.pushNamed('Home');
 
                                   safeSetState(() {});
                                 },

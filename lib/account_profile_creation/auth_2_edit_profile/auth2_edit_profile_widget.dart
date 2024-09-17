@@ -1,4 +1,5 @@
 import '/account_profile_creation/edit_profile_auth_2/edit_profile_auth2_widget.dart';
+import '/components/nav_bar1_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -130,9 +131,10 @@ class _Auth2EditProfileWidgetState extends State<Auth2EditProfileWidget>
                   animationsMap['containerOnPageLoadAnimation']!),
             ),
             Align(
-              alignment: const AlignmentDirectional(0.0, -1.0),
+              alignment: const AlignmentDirectional(0.0, 1.0),
               child: Container(
                 width: double.infinity,
+                height: 699.0,
                 constraints: const BoxConstraints(
                   maxWidth: 770.0,
                 ),
@@ -150,6 +152,14 @@ class _Auth2EditProfileWidgetState extends State<Auth2EditProfileWidget>
                     },
                   ),
                 ),
+              ),
+            ),
+            Align(
+              alignment: const AlignmentDirectional(0.0, 1.0),
+              child: wrapWithModel(
+                model: _model.navBar1Model,
+                updateCallback: () => safeSetState(() {}),
+                child: const NavBar1Widget(),
               ),
             ),
           ],
