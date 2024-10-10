@@ -1,4 +1,3 @@
-import '/components/nav_bar1_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'create_game_widget.dart' show CreateGameWidget;
@@ -8,6 +7,11 @@ class CreateGameModel extends FlutterFlowModel<CreateGameWidget> {
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
+  bool isDataUploading = false;
+  FFUploadedFile uploadedLocalFile =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl = '';
+
   // State field(s) for txtGameTitle widget.
   FocusNode? txtGameTitleFocusNode;
   TextEditingController? txtGameTitleTextController;
@@ -38,11 +42,6 @@ class CreateGameModel extends FlutterFlowModel<CreateGameWidget> {
   // State field(s) for drpSportCategory widget.
   String? drpSportCategoryValue;
   FormFieldController<String>? drpSportCategoryValueController;
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl = '';
-
   // State field(s) for txtNumberPlayers widget.
   FocusNode? txtNumberPlayersFocusNode;
   TextEditingController? txtNumberPlayersTextController;
@@ -52,15 +51,12 @@ class CreateGameModel extends FlutterFlowModel<CreateGameWidget> {
   DateTime? datePicked2;
   // Stores action output result for [Custom Action - getDocRefFromID] action in Button widget.
   DocumentReference? selectedDocRef;
-  // Model for NavBar1 component.
-  late NavBar1Model navBar1Model;
 
   @override
   void initState(BuildContext context) {
     txtGameTitleTextControllerValidator = _txtGameTitleTextControllerValidator;
     txtGameDescriptionTextControllerValidator =
         _txtGameDescriptionTextControllerValidator;
-    navBar1Model = createModel(context, () => NavBar1Model());
   }
 
   @override
@@ -73,7 +69,5 @@ class CreateGameModel extends FlutterFlowModel<CreateGameWidget> {
 
     txtNumberPlayersFocusNode?.dispose();
     txtNumberPlayersTextController?.dispose();
-
-    navBar1Model.dispose();
   }
 }

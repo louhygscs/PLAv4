@@ -1,5 +1,4 @@
 import '/account_profile_creation/edit_profile_auth_2/edit_profile_auth2_widget.dart';
-import '/components/header_logo_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -86,6 +85,13 @@ class _Auth2CreateProfileWidgetState extends State<Auth2CreateProfileWidget>
         body: Container(
           height: double.infinity,
           decoration: BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              alignment: const AlignmentDirectional(1.0, 0.0),
+              image: Image.asset(
+                'assets/images/background3.jpg',
+              ).image,
+            ),
             gradient: LinearGradient(
               colors: [
                 FlutterFlowTheme.of(context).primary,
@@ -115,11 +121,13 @@ class _Auth2CreateProfileWidgetState extends State<Auth2CreateProfileWidget>
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Expanded(
-                          child: wrapWithModel(
-                            model: _model.headerLogoModel,
-                            updateCallback: () => safeSetState(() {}),
-                            child: const HeaderLogoWidget(),
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.asset(
+                            'assets/images/pla_logo.png',
+                            width: 125.0,
+                            height: 150.0,
+                            fit: BoxFit.contain,
                           ),
                         ),
                       ],

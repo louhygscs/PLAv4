@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'details_court_yard_widget.dart' show DetailsCourtYardWidget;
+import 'add_payment_widget.dart' show AddPaymentWidget;
 import 'package:flutter/material.dart';
 
-class DetailsCourtYardModel extends FlutterFlowModel<DetailsCourtYardWidget> {
+class AddPaymentModel extends FlutterFlowModel<AddPaymentWidget> {
   @override
   void initState(BuildContext context) {}
 

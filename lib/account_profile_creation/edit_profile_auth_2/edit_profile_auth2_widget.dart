@@ -76,6 +76,7 @@ class _EditProfileAuth2WidgetState extends State<EditProfileAuth2Widget> {
               widget.title,
               style: FlutterFlowTheme.of(context).displaySmall.override(
                     fontFamily: 'Sora',
+                    color: FlutterFlowTheme.of(context).info,
                     letterSpacing: 0.0,
                   ),
             ),
@@ -86,6 +87,7 @@ class _EditProfileAuth2WidgetState extends State<EditProfileAuth2Widget> {
               'Adjust the content below to update your profile.',
               style: FlutterFlowTheme.of(context).labelLarge.override(
                     fontFamily: 'Inter',
+                    color: FlutterFlowTheme.of(context).info,
                     letterSpacing: 0.0,
                   ),
             ),
@@ -452,14 +454,14 @@ class _EditProfileAuth2WidgetState extends State<EditProfileAuth2Widget> {
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   iconPadding:
                       const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                  color: FlutterFlowTheme.of(context).primary,
+                  color: const Color(0xFF447AE9),
                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily: 'Inter',
                         letterSpacing: 0.0,
                       ),
                   elevation: 3.0,
-                  borderSide: const BorderSide(
-                    color: Colors.transparent,
+                  borderSide: BorderSide(
+                    color: FlutterFlowTheme.of(context).alternate,
                     width: 1.0,
                   ),
                   borderRadius: BorderRadius.circular(12.0),

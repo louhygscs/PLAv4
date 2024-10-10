@@ -49,9 +49,9 @@ class _WaitingPlayersWidgetState extends State<WaitingPlayersWidget> {
                 color: FlutterFlowTheme.of(context).secondaryBackground,
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  alignment: const AlignmentDirectional(-0.9, 0.0),
+                  alignment: const AlignmentDirectional(1.0, 0.0),
                   image: Image.asset(
-                    'assets/images/vecteezy_sports-background-vector-international-sports-day_20919577-1.jpg',
+                    'assets/images/background3.jpg',
                   ).image,
                 ),
               ),
@@ -106,6 +106,41 @@ class _WaitingPlayersWidgetState extends State<WaitingPlayersWidget> {
                                 ),
                               ),
                             ),
+                          ),
+                          Stack(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Container(
+                                  width: 75.0,
+                                  height: 75.0,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.asset(
+                                    'assets/images/OIP.jpeg',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    35.0, 8.0, 0.0, 0.0),
+                                child: Container(
+                                  width: 78.0,
+                                  height: 78.0,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.asset(
+                                    'assets/images/OIP.jpeg',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),

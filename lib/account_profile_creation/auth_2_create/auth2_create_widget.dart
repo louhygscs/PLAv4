@@ -93,6 +93,13 @@ class _Auth2CreateWidgetState extends State<Auth2CreateWidget>
           width: double.infinity,
           height: double.infinity,
           decoration: BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              alignment: const AlignmentDirectional(1.0, 0.0),
+              image: Image.asset(
+                'assets/images/background3.jpg',
+              ).image,
+            ),
             gradient: LinearGradient(
               colors: [
                 FlutterFlowTheme.of(context).primary,
@@ -123,8 +130,8 @@ class _Auth2CreateWidgetState extends State<Auth2CreateWidget>
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.asset(
                         'assets/images/pla_logo.png',
-                        width: 176.0,
-                        height: 267.0,
+                        width: 125.0,
+                        height: 150.0,
                         fit: BoxFit.contain,
                       ),
                     ),
@@ -362,7 +369,7 @@ class _Auth2CreateWidgetState extends State<Auth2CreateWidget>
                                     0.0, 0.0, 0.0, 0.0),
                                 iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).primary,
+                                color: const Color(0xFF447AE9),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(

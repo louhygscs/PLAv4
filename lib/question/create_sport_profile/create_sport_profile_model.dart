@@ -1,4 +1,3 @@
-import '/components/nav_bar1_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'create_sport_profile_widget.dart' show CreateSportProfileWidget;
@@ -58,15 +57,12 @@ class CreateSportProfileModel
       ccSkillLevelValueController?.value = val != null ? [val] : [];
   // State field(s) for ppAddress widget.
   FFPlace ppAddressValue = const FFPlace();
-  // Model for NavBar1 component.
-  late NavBar1Model navBar1Model;
 
   @override
   void initState(BuildContext context) {
     txtAgeTextControllerValidator = _txtAgeTextControllerValidator;
     txtHeightTextControllerValidator = _txtHeightTextControllerValidator;
     txtWeightTextControllerValidator = _txtWeightTextControllerValidator;
-    navBar1Model = createModel(context, () => NavBar1Model());
   }
 
   @override
@@ -79,7 +75,5 @@ class CreateSportProfileModel
 
     txtWeightFocusNode?.dispose();
     txtWeightTextController?.dispose();
-
-    navBar1Model.dispose();
   }
 }

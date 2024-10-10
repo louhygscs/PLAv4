@@ -1,7 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/nav_bar1_widget.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_place_picker.dart';
 import '/flutter_flow/flutter_flow_static_map.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -86,11 +86,405 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            drawer: Drawer(
+              elevation: 16.0,
+              child: Stack(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: double.infinity,
+                    decoration: const BoxDecoration(
+                      color: Color(0xF1010856),
+                    ),
+                  ),
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Align(
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  30.0, 30.0, 0.0, 0.0),
+                              child: AuthUserStreamWidget(
+                                builder: (context) => ClipRRect(
+                                  borderRadius: const BorderRadius.only(
+                                    bottomLeft: Radius.circular(50.0),
+                                    bottomRight: Radius.circular(50.0),
+                                    topLeft: Radius.circular(50.0),
+                                    topRight: Radius.circular(50.0),
+                                  ),
+                                  child: Image.network(
+                                    currentUserPhoto,
+                                    width: 75.0,
+                                    height: 75.0,
+                                    fit: BoxFit.cover,
+                                    alignment: const Alignment(0.0, 0.0),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Align(
+                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 20.0, 0.0, 0.0),
+                                  child: AuthUserStreamWidget(
+                                    builder: (context) => Text(
+                                      currentUserDisplayName,
+                                      style: FlutterFlowTheme.of(context)
+                                          .titleMedium
+                                          .override(
+                                            fontFamily: 'Inter',
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('auth_2_Profile');
+                                },
+                                child: Text(
+                                  'Edit Profile',
+                                  style: FlutterFlowTheme.of(context)
+                                      .labelSmall
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        fontSize: 14.0,
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 30.0, 0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    50.0, 0.0, 0.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('Home');
+                                  },
+                                  child: Icon(
+                                    Icons.sports_football,
+                                    color: FlutterFlowTheme.of(context).info,
+                                    size: 32.0,
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 0.0, 0.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('Home');
+                                  },
+                                  child: Text(
+                                    'Games',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color:
+                                              FlutterFlowTheme.of(context).info,
+                                          fontSize: 24.0,
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 30.0, 0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    50.0, 0.0, 0.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('chat_2_main');
+                                  },
+                                  child: Icon(
+                                    Icons.groups_rounded,
+                                    color: FlutterFlowTheme.of(context).info,
+                                    size: 32.0,
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  'Friends',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
+                                        fontSize: 24.0,
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 30.0, 0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    50.0, 0.0, 0.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('chat_2_main');
+                                  },
+                                  child: Icon(
+                                    Icons.message_outlined,
+                                    color: FlutterFlowTheme.of(context).info,
+                                    size: 32.0,
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 0.0, 0.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('chat_2_main');
+                                  },
+                                  child: Text(
+                                    'Messages',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color:
+                                              FlutterFlowTheme.of(context).info,
+                                          fontSize: 24.0,
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 30.0, 0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    50.0, 0.0, 0.0, 0.0),
+                                child: Icon(
+                                  Icons.notifications_active,
+                                  color: FlutterFlowTheme.of(context).info,
+                                  size: 32.0,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  'Notifications',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
+                                        fontSize: 24.0,
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 30.0, 0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    50.0, 0.0, 0.0, 0.0),
+                                child: Icon(
+                                  Icons.add_card_rounded,
+                                  color: FlutterFlowTheme.of(context).info,
+                                  size: 32.0,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  'Payment',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
+                                        fontSize: 24.0,
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 30.0, 0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    50.0, 0.0, 0.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    GoRouter.of(context).prepareAuthEvent();
+                                    await authManager.signOut();
+                                    GoRouter.of(context)
+                                        .clearRedirectLocation();
+
+                                    context.goNamedAuth(
+                                        'auth_2_Login', context.mounted);
+                                  },
+                                  child: Icon(
+                                    Icons.exit_to_app,
+                                    color: FlutterFlowTheme.of(context).info,
+                                    size: 32.0,
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 0.0, 0.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    GoRouter.of(context).prepareAuthEvent();
+                                    await authManager.signOut();
+                                    GoRouter.of(context)
+                                        .clearRedirectLocation();
+
+                                    context.goNamedAuth(
+                                        'auth_2_Login', context.mounted);
+                                  },
+                                  child: Text(
+                                    'Log Out',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color:
+                                              FlutterFlowTheme.of(context).info,
+                                          fontSize: 24.0,
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
             body: Container(
               width: double.infinity,
               height: double.infinity,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  alignment: const AlignmentDirectional(1.0, 0.0),
+                  image: Image.asset(
+                    'assets/images/background3.jpg',
+                  ).image,
+                ),
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
@@ -121,7 +515,7 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                               gradient: LinearGradient(
                                 colors: [
                                   FlutterFlowTheme.of(context).primary,
-                                  FlutterFlowTheme.of(context).tertiary
+                                  const Color(0xFF04007E)
                                 ],
                                 stops: const [0.0, 1.0],
                                 begin: const AlignmentDirectional(0.0, -1.0),
@@ -131,27 +525,23 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                Align(
-                                  alignment: const AlignmentDirectional(0.0, 1.0),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 5.0, 10.0),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        // NavBack
-                                        context.safePop();
-                                      },
-                                      child: Icon(
-                                        Icons.navigate_before,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                        size: 48.0,
-                                      ),
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 12.0, 0.0),
+                                  child: FlutterFlowIconButton(
+                                    borderRadius: 20.0,
+                                    buttonSize: 40.0,
+                                    fillColor: const Color(0xFF447AE9),
+                                    icon: Icon(
+                                      Icons.sports_football_rounded,
+                                      color: FlutterFlowTheme.of(context).info,
+                                      size: 24.0,
                                     ),
+                                    onPressed: () async {
+                                      FFAppState().showDrawer = true;
+                                      safeSetState(() {});
+                                      scaffoldKey.currentState!.openDrawer();
+                                    },
                                   ),
                                 ),
                               ],
@@ -163,10 +553,8 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                   ),
                   Container(
                     width: double.infinity,
-                    height: 712.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                    ),
+                    height: 773.0,
+                    decoration: const BoxDecoration(),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -188,6 +576,8 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Inter',
+                                            color: FlutterFlowTheme.of(context)
+                                                .info,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -257,6 +647,9 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                       ),
+                                      filled: true,
+                                      fillColor: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -333,6 +726,9 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                       ),
+                                      filled: true,
+                                      fillColor: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -409,6 +805,9 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                       ),
+                                      filled: true,
+                                      fillColor: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -432,6 +831,8 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Inter',
+                                            color: FlutterFlowTheme.of(context)
+                                                .info,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -439,7 +840,7 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         12.0, 12.0, 12.0, 0.0),
@@ -454,9 +855,7 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                                           _model.ccGenderValue =
                                               val?.firstOrNull),
                                       selectedChipStyle: ChipStyle(
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .primary,
+                                        backgroundColor: const Color(0xFF447AE9),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -474,6 +873,9 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                                             const EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 6.0, 6.0, 6.0),
                                         elevation: 4.0,
+                                        borderColor:
+                                            FlutterFlowTheme.of(context)
+                                                .alternate,
                                         borderRadius:
                                             BorderRadius.circular(6.0),
                                       ),
@@ -528,6 +930,8 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Inter',
+                                            color: FlutterFlowTheme.of(context)
+                                                .info,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -535,7 +939,7 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         12.0, 12.0, 12.0, 0.0),
@@ -551,9 +955,7 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                                           _model.ccSkillLevelValue =
                                               val?.firstOrNull),
                                       selectedChipStyle: ChipStyle(
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .primary,
+                                        backgroundColor: const Color(0xFF447AE9),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -569,6 +971,9 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                                         iconSize: 24.0,
                                         labelPadding: const EdgeInsets.all(6.0),
                                         elevation: 4.0,
+                                        borderColor:
+                                            FlutterFlowTheme.of(context)
+                                                .alternate,
                                         borderRadius:
                                             BorderRadius.circular(6.0),
                                       ),
@@ -622,6 +1027,8 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Inter',
+                                            color: FlutterFlowTheme.of(context)
+                                                .info,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -632,7 +1039,7 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                                   alignment: const AlignmentDirectional(-1.0, 0.0),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 12.0, 0.0, 0.0),
+                                        12.0, 12.0, 12.0, 0.0),
                                     child: FlutterFlowPlacePicker(
                                       iOSGoogleMapsApiKey:
                                           'AIzaSyAMyaKhbqavqPnGBlh2jorMgV1N_2KqMOs',
@@ -652,10 +1059,9 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                                         size: 16.0,
                                       ),
                                       buttonOptions: FFButtonOptions(
-                                        width: 200.0,
+                                        width: double.infinity,
                                         height: 40.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
+                                        color: const Color(0xFF447AE9),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
@@ -666,8 +1072,9 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                                               letterSpacing: 0.0,
                                             ),
                                         elevation: 2.0,
-                                        borderSide: const BorderSide(
-                                          color: Colors.transparent,
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
                                           width: 1.0,
                                         ),
                                         borderRadius:
@@ -693,7 +1100,7 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                                                 'ENTER_YOUR_MAPBOX_API_KEY_HERE',
                                             style: mapbox.MapBoxStyle.Light,
                                             width: 360.0,
-                                            height: 100.0,
+                                            height: 170.0,
                                             fit: BoxFit.contain,
                                             borderRadius: BorderRadius.only(
                                               bottomLeft: Radius.circular(0.0),
@@ -777,8 +1184,7 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                                         iconPadding:
                                             const EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
+                                        color: const Color(0xFF447AE9),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
@@ -787,8 +1193,9 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                                               letterSpacing: 0.0,
                                             ),
                                         elevation: 3.0,
-                                        borderSide: const BorderSide(
-                                          color: Colors.transparent,
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
                                           width: 1.0,
                                         ),
                                         borderRadius:
@@ -803,11 +1210,6 @@ class _EditSportProfileWidgetState extends State<EditSportProfileWidget> {
                         ),
                       ],
                     ),
-                  ),
-                  wrapWithModel(
-                    model: _model.navBar1Model,
-                    updateCallback: () => safeSetState(() {}),
-                    child: const NavBar1Widget(),
                   ),
                 ],
               ),

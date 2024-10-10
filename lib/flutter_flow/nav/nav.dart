@@ -232,6 +232,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'WaitingPlayers',
           path: '/waitingPlayers',
           builder: (context, params) => const WaitingPlayersWidget(),
+        ),
+        FFRoute(
+          name: 'AddPayment',
+          path: '/addPayment',
+          builder: (context, params) => const AddPaymentWidget(),
+        ),
+        FFRoute(
+          name: 'InviteFriends',
+          path: '/inviteFriends',
+          builder: (context, params) => const InviteFriendsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

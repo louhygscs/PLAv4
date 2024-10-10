@@ -91,6 +91,13 @@ class _Auth2ForgotPasswordWidgetState extends State<Auth2ForgotPasswordWidget>
         body: Container(
           height: double.infinity,
           decoration: BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              alignment: const AlignmentDirectional(1.0, 0.0),
+              image: Image.asset(
+                'assets/images/background3.jpg',
+              ).image,
+            ),
             gradient: LinearGradient(
               colors: [
                 FlutterFlowTheme.of(context).primary,
@@ -315,7 +322,7 @@ class _Auth2ForgotPasswordWidgetState extends State<Auth2ForgotPasswordWidget>
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context).primary,
+                                  color: const Color(0xFF447AE9),
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(

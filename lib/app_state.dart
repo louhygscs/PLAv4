@@ -181,6 +181,18 @@ class FFAppState extends ChangeNotifier {
     _address3 = value;
   }
 
+  bool _showDrawer = false;
+  bool get showDrawer => _showDrawer;
+  set showDrawer(bool value) {
+    _showDrawer = value;
+  }
+
+  bool _showMap = true;
+  bool get showMap => _showMap;
+  set showMap(bool value) {
+    _showMap = value;
+  }
+
   final _userDocQueryManager = FutureRequestManager<UsersRecord>();
   Future<UsersRecord> userDocQuery({
     String? uniqueQueryKey,

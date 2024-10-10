@@ -531,7 +531,7 @@ class _Chat2InviteUsersWidgetState extends State<Chat2InviteUsersWidget> {
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       iconPadding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).primary,
+                      color: const Color(0xFF447AE9),
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Inter',
@@ -543,7 +543,7 @@ class _Chat2InviteUsersWidgetState extends State<Chat2InviteUsersWidget> {
                         color: Colors.transparent,
                         width: 1.0,
                       ),
-                      borderRadius: BorderRadius.circular(50.0),
+                      borderRadius: BorderRadius.circular(12.0),
                     ),
                   ),
                 ),

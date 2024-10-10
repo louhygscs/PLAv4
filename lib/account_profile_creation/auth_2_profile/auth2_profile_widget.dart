@@ -1,7 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/nav_bar1_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -99,89 +99,122 @@ class _Auth2ProfileWidgetState extends State<Auth2ProfileWidget>
               alignment: const AlignmentDirectional(0.0, -1.0),
               child: Container(
                 width: double.infinity,
-                height: 779.0,
-                constraints: const BoxConstraints(
-                  maxWidth: 770.0,
-                ),
+                height: 1386.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    alignment: const AlignmentDirectional(1.0, 0.0),
+                    image: Image.asset(
+                      'assets/images/background3.jpg',
+                    ).image,
+                  ),
                 ),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      height: 180.0,
-                      child: Stack(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 16.0),
+                    Stack(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 16.0),
+                          child: Container(
+                            width: double.infinity,
+                            height: 68.0,
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  FlutterFlowTheme.of(context).primary,
+                                  FlutterFlowTheme.of(context).error,
+                                  FlutterFlowTheme.of(context).tertiary
+                                ],
+                                stops: const [0.0, 0.5, 1.0],
+                                begin: const AlignmentDirectional(-1.0, -1.0),
+                                end: const AlignmentDirectional(1.0, 1.0),
+                              ),
+                            ),
                             child: Container(
                               width: double.infinity,
-                              height: 140.0,
+                              height: 200.0,
                               decoration: BoxDecoration(
                                 gradient: LinearGradient(
                                   colors: [
                                     FlutterFlowTheme.of(context).primary,
-                                    FlutterFlowTheme.of(context).error,
-                                    FlutterFlowTheme.of(context).tertiary
+                                    const Color(0xFF04007E)
                                   ],
-                                  stops: const [0.0, 0.5, 1.0],
-                                  begin: const AlignmentDirectional(-1.0, -1.0),
-                                  end: const AlignmentDirectional(1.0, 1.0),
+                                  stops: const [0.0, 1.0],
+                                  begin: const AlignmentDirectional(0.0, -1.0),
+                                  end: const AlignmentDirectional(0, 1.0),
                                 ),
                               ),
-                              child: Container(
-                                width: 100.0,
-                                height: 200.0,
-                                decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    colors: [
-                                      FlutterFlowTheme.of(context).primary,
-                                      FlutterFlowTheme.of(context).tertiary
-                                    ],
-                                    stops: const [0.0, 1.0],
-                                    begin: const AlignmentDirectional(0.0, -1.0),
-                                    end: const AlignmentDirectional(0, 1.0),
-                                  ),
-                                ),
-                              ),
-                            ).animateOnPageLoad(
-                                animationsMap['containerOnPageLoadAnimation']!),
-                          ),
-                          Align(
-                            alignment: const AlignmentDirectional(-1.0, 1.0),
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 0.0, 0.0),
-                              child: Container(
-                                width: 90.0,
-                                height: 90.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).accent2,
-                                  shape: BoxShape.circle,
-                                  border: Border.all(
-                                    color:
-                                        FlutterFlowTheme.of(context).secondary,
-                                    width: 2.0,
-                                  ),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(4.0),
-                                  child: AuthUserStreamWidget(
-                                    builder: (context) => ClipRRect(
-                                      borderRadius: BorderRadius.circular(50.0),
-                                      child: CachedNetworkImage(
-                                        fadeInDuration:
-                                            const Duration(milliseconds: 500),
-                                        fadeOutDuration:
-                                            const Duration(milliseconds: 500),
-                                        imageUrl: currentUserPhoto,
-                                        width: 100.0,
-                                        height: 100.0,
-                                        fit: BoxFit.cover,
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Align(
+                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                    child: Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 0.0, 12.0, 0.0),
+                                      child: FlutterFlowIconButton(
+                                        borderColor: Colors.transparent,
+                                        borderRadius: 20.0,
+                                        buttonSize: 40.0,
+                                        fillColor: const Color(0xFF447AE9),
+                                        icon: Icon(
+                                          Icons.sports_football,
+                                          color:
+                                              FlutterFlowTheme.of(context).info,
+                                          size: 24.0,
+                                        ),
+                                        onPressed: () async {
+                                          FFAppState().showDrawer = true;
+                                          safeSetState(() {});
+                                          scaffoldKey.currentState!
+                                              .openDrawer();
+                                        },
                                       ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ).animateOnPageLoad(
+                              animationsMap['containerOnPageLoadAnimation']!),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 106.0,
+                      child: Stack(
+                        children: [
+                          Align(
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: Container(
+                              width: 90.0,
+                              height: 90.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context).accent2,
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  color: FlutterFlowTheme.of(context).secondary,
+                                  width: 2.0,
+                                ),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: AuthUserStreamWidget(
+                                  builder: (context) => ClipRRect(
+                                    borderRadius: BorderRadius.circular(50.0),
+                                    child: CachedNetworkImage(
+                                      fadeInDuration:
+                                          const Duration(milliseconds: 500),
+                                      fadeOutDuration:
+                                          const Duration(milliseconds: 500),
+                                      imageUrl: currentUserPhoto,
+                                      width: 100.0,
+                                      height: 100.0,
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
                                 ),
@@ -191,18 +224,22 @@ class _Auth2ProfileWidgetState extends State<Auth2ProfileWidget>
                         ],
                       ),
                     ),
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(24.0, 12.0, 0.0, 0.0),
-                      child: AuthUserStreamWidget(
-                        builder: (context) => Text(
-                          currentUserDisplayName,
-                          style: FlutterFlowTheme.of(context)
-                              .displaySmall
-                              .override(
-                                fontFamily: 'Sora',
-                                letterSpacing: 0.0,
-                              ),
+                    Align(
+                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            24.0, 12.0, 0.0, 0.0),
+                        child: AuthUserStreamWidget(
+                          builder: (context) => Text(
+                            currentUserDisplayName,
+                            style: FlutterFlowTheme.of(context)
+                                .displaySmall
+                                .override(
+                                  fontFamily: 'Sora',
+                                  color: FlutterFlowTheme.of(context).info,
+                                  letterSpacing: 0.0,
+                                ),
+                          ),
                         ),
                       ),
                     ),
@@ -227,7 +264,7 @@ class _Auth2ProfileWidgetState extends State<Auth2ProfileWidget>
                       child: Text(
                         'Your Account',
                         style:
-                            FlutterFlowTheme.of(context).labelMedium.override(
+                            FlutterFlowTheme.of(context).titleMedium.override(
                                   fontFamily: 'Inter',
                                   letterSpacing: 0.0,
                                 ),
@@ -405,7 +442,7 @@ class _Auth2ProfileWidgetState extends State<Auth2ProfileWidget>
                       child: Text(
                         'App Settings',
                         style:
-                            FlutterFlowTheme.of(context).labelMedium.override(
+                            FlutterFlowTheme.of(context).titleMedium.override(
                                   fontFamily: 'Inter',
                                   letterSpacing: 0.0,
                                 ),
@@ -565,7 +602,7 @@ class _Auth2ProfileWidgetState extends State<Auth2ProfileWidget>
                                 0.0, 0.0, 0.0, 0.0),
                             iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primary,
+                            color: const Color(0xFF447AE9),
                             textStyle:
                                 FlutterFlowTheme.of(context).bodyLarge.override(
                                       fontFamily: 'Inter',
@@ -586,11 +623,6 @@ class _Auth2ProfileWidgetState extends State<Auth2ProfileWidget>
                   ],
                 ),
               ),
-            ),
-            wrapWithModel(
-              model: _model.navBar1Model,
-              updateCallback: () => safeSetState(() {}),
-              child: const NavBar1Widget(),
             ),
           ],
         ),
