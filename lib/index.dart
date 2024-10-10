@@ -41,3 +41,5 @@ export '/common/waiting_players/waiting_players_widget.dart'
 export '/payment/add_payment/add_payment_widget.dart' show AddPaymentWidget;
 export '/friends/invite_friends/invite_friends_widget.dart'
     show InviteFriendsWidget;
+export '/notification/notifications_page/notifications_page_widget.dart'
+    show NotificationsPageWidget;

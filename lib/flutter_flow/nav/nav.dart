@@ -104,16 +104,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'auth_2_Profile',
           path: '/auth2Profile',
+          requireAuth: true,
           builder: (context, params) => const Auth2ProfileWidget(),
         ),
         FFRoute(
           name: 'auth_2_EditProfile',
           path: '/auth2EditProfile',
+          requireAuth: true,
           builder: (context, params) => const Auth2EditProfileWidget(),
         ),
         FFRoute(
           name: 'chat_2_Details',
           path: '/chat2Details',
+          requireAuth: true,
           asyncParams: {
             'chatRef': getDoc(['chats'], ChatsRecord.fromSnapshot),
           },
@@ -127,11 +130,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'chat_2_main',
           path: '/chat2Main',
+          requireAuth: true,
           builder: (context, params) => const Chat2MainWidget(),
         ),
         FFRoute(
           name: 'chat_2_InviteUsers',
           path: '/chat2InviteUsers',
+          requireAuth: true,
           asyncParams: {
             'chatRef': getDoc(['chats'], ChatsRecord.fromSnapshot),
           },
@@ -145,6 +150,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'image_Details',
           path: '/imageDetails',
+          requireAuth: true,
           asyncParams: {
             'chatMessage':
                 getDoc(['chat_messages'], ChatMessagesRecord.fromSnapshot),
@@ -159,26 +165,31 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'edit_SportProfile',
           path: '/editSportProfile',
+          requireAuth: true,
           builder: (context, params) => const EditSportProfileWidget(),
         ),
         FFRoute(
           name: 'create_SportProfile',
           path: '/create_SportProfile',
+          requireAuth: true,
           builder: (context, params) => const CreateSportProfileWidget(),
         ),
         FFRoute(
           name: 'map',
           path: '/map',
+          requireAuth: true,
           builder: (context, params) => const MapWidget(),
         ),
         FFRoute(
           name: 'create_CourtYard',
           path: '/createCourtYard',
+          requireAuth: true,
           builder: (context, params) => const CreateCourtYardWidget(),
         ),
         FFRoute(
           name: 'edit_CourtYard',
           path: '/editCourtYard',
+          requireAuth: true,
           builder: (context, params) => EditCourtYardWidget(
             paramVenueName: params.getParam(
               'paramVenueName',
@@ -189,11 +200,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'search_CourtYard',
           path: '/searchCourtYard',
+          requireAuth: true,
           builder: (context, params) => const SearchCourtYardWidget(),
         ),
         FFRoute(
           name: 'details_CourtYard',
           path: '/detailsCourtYard',
+          requireAuth: true,
           builder: (context, params) => DetailsCourtYardWidget(
             paramVenueName: params.getParam(
               'paramVenueName',
@@ -204,21 +217,25 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'CreateGame',
           path: '/createGame',
+          requireAuth: true,
           builder: (context, params) => const CreateGameWidget(),
         ),
         FFRoute(
           name: 'Home',
           path: '/home',
+          requireAuth: true,
           builder: (context, params) => const HomeWidget(),
         ),
         FFRoute(
           name: 'GameSetting',
           path: '/gameSetting',
+          requireAuth: true,
           builder: (context, params) => const GameSettingWidget(),
         ),
         FFRoute(
           name: 'GameMap',
           path: '/gameMap',
+          requireAuth: true,
           builder: (context, params) => GameMapWidget(
             gameRefId: params.getParam(
               'gameRefId',
@@ -231,17 +248,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'WaitingPlayers',
           path: '/waitingPlayers',
+          requireAuth: true,
           builder: (context, params) => const WaitingPlayersWidget(),
         ),
         FFRoute(
           name: 'AddPayment',
           path: '/addPayment',
+          requireAuth: true,
           builder: (context, params) => const AddPaymentWidget(),
         ),
         FFRoute(
           name: 'InviteFriends',
           path: '/inviteFriends',
+          requireAuth: true,
           builder: (context, params) => const InviteFriendsWidget(),
+        ),
+        FFRoute(
+          name: 'NotificationsPage',
+          path: '/NotificationsPage',
+          requireAuth: true,
+          builder: (context, params) => const NotificationsPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
