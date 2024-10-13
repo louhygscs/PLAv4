@@ -206,7 +206,7 @@ class _CreateCourtYardWidgetState extends State<CreateCourtYardWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed('chat_2_main');
+                                context.pushNamed('InviteFriends');
                               },
                               child: Icon(
                                 Icons.groups_rounded,
@@ -308,25 +308,43 @@ class _CreateCourtYardWidgetState extends State<CreateCourtYardWidget> {
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 50.0, 0.0, 0.0, 0.0),
-                            child: Icon(
-                              Icons.notifications_active,
-                              color: FlutterFlowTheme.of(context).info,
-                              size: 32.0,
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed('NotificationsPage');
+                              },
+                              child: Icon(
+                                Icons.notifications_active,
+                                color: FlutterFlowTheme.of(context).info,
+                                size: 32.0,
+                              ),
                             ),
                           ),
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 0.0, 0.0),
-                            child: Text(
-                              'Notifications',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context).info,
-                                    fontSize: 24.0,
-                                    letterSpacing: 0.0,
-                                  ),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed('NotificationsPage');
+                              },
+                              child: Text(
+                                'Notifications',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context).info,
+                                      fontSize: 24.0,
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
                             ),
                           ),
                         ],
@@ -350,7 +368,10 @@ class _CreateCourtYardWidgetState extends State<CreateCourtYardWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed('AddPayment');
+                                context.pushNamed('PaymentPage');
+
+                                FFAppState().showDrawer = true;
+                                safeSetState(() {});
                               },
                               child: Icon(
                                 Icons.add_card_rounded,
@@ -368,7 +389,10 @@ class _CreateCourtYardWidgetState extends State<CreateCourtYardWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed('AddPayment');
+                                context.pushNamed('PaymentPage');
+
+                                FFAppState().showDrawer = true;
+                                safeSetState(() {});
                               },
                               child: Text(
                                 'Payment',

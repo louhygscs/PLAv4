@@ -15,6 +15,7 @@ import 'schema/gamematch_record.dart';
 import 'schema/gamematch_rating_record.dart';
 import 'schema/gameplayers_record.dart';
 import 'schema/orders_record.dart';
+import 'schema/cardinfo_record.dart';
 import 'dart:async';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
@@ -35,6 +36,7 @@ export 'schema/gamematch_record.dart';
 export 'schema/gamematch_rating_record.dart';
 export 'schema/gameplayers_record.dart';
 export 'schema/orders_record.dart';
+export 'schema/cardinfo_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -798,6 +800,84 @@ Future<FFFirestorePage<OrdersRecord>> queryOrdersRecordPage({
       if (isStream) {
         final streamSubscription =
             (page.dataStream)?.listen((List<OrdersRecord> data) {
+          for (var item in data) {
+            final itemIndexes = controller.itemList!
+                .asMap()
+                .map((k, v) => MapEntry(v.reference.id, k));
+            final index = itemIndexes[item.reference.id];
+            final items = controller.itemList!;
+            if (index != null) {
+              items.replaceRange(index, index + 1, [item]);
+              controller.itemList = {
+                for (var item in items) item.reference: item
+              }.values.toList();
+            }
+          }
+        });
+        streamSubscriptions?.add(streamSubscription);
+      }
+      return page;
+    });
+
+/// Functions to query CardinfoRecords (as a Stream and as a Future).
+Future<int> queryCardinfoRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      CardinfoRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<CardinfoRecord>> queryCardinfoRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      CardinfoRecord.collection,
+      CardinfoRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<CardinfoRecord>> queryCardinfoRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      CardinfoRecord.collection,
+      CardinfoRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+Future<FFFirestorePage<CardinfoRecord>> queryCardinfoRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+  required PagingController<DocumentSnapshot?, CardinfoRecord> controller,
+  List<StreamSubscription?>? streamSubscriptions,
+}) =>
+    queryCollectionPage(
+      CardinfoRecord.collection,
+      CardinfoRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    ).then((page) {
+      controller.appendPage(
+        page.data,
+        page.nextPageMarker,
+      );
+      if (isStream) {
+        final streamSubscription =
+            (page.dataStream)?.listen((List<CardinfoRecord> data) {
           for (var item in data) {
             final itemIndexes = controller.itemList!
                 .asMap()

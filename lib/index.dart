@@ -38,7 +38,7 @@ export '/game/game_setting/game_setting_widget.dart' show GameSettingWidget;
 export '/game/game_map/game_map_widget.dart' show GameMapWidget;
 export '/common/waiting_players/waiting_players_widget.dart'
     show WaitingPlayersWidget;
-export '/payment/add_payment/add_payment_widget.dart' show AddPaymentWidget;
+export '/payment/payment_page/payment_page_widget.dart' show PaymentPageWidget;
 export '/friends/invite_friends/invite_friends_widget.dart'
     show InviteFriendsWidget;
 export '/notification/notifications_page/notifications_page_widget.dart'

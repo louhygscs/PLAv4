@@ -359,7 +359,7 @@ class _NotificationsPageWidgetState extends State<NotificationsPageWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed('AddPayment');
+                                context.pushNamed('PaymentPage');
 
                                 FFAppState().showDrawer = true;
                                 safeSetState(() {});
@@ -380,7 +380,7 @@ class _NotificationsPageWidgetState extends State<NotificationsPageWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed('AddPayment');
+                                context.pushNamed('PaymentPage');
 
                                 FFAppState().showDrawer = true;
                                 safeSetState(() {});

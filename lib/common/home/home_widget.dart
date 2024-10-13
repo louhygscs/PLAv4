@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:text_search/text_search.dart';
@@ -26,12 +27,20 @@ class _HomeWidgetState extends State<HomeWidget> {
   late HomeModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => HomeModel());
 
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      safeSetState(() {});
+    });
+
+    getCurrentUserLocation(defaultLocation: const LatLng(0.0, 0.0), cached: true)
+        .then((loc) => safeSetState(() => currentUserLocationValue = loc));
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
@@ -48,6 +57,22 @@ class _HomeWidgetState extends State<HomeWidget> {
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
+    if (currentUserLocationValue == null) {
+      return Container(
+        color: FlutterFlowTheme.of(context).primaryBackground,
+        child: Center(
+          child: SizedBox(
+            width: 50.0,
+            height: 50.0,
+            child: CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(
+                FlutterFlowTheme.of(context).primary,
+              ),
+            ),
+          ),
+        ),
+      );
+    }
 
     return StreamBuilder<List<GamematchRecord>>(
       stream: queryGamematchRecord(
@@ -402,7 +427,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed('AddPayment');
+                                    context.pushNamed('PaymentPage');
 
                                     FFAppState().showDrawer = true;
                                     safeSetState(() {});
@@ -423,7 +448,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed('AddPayment');
+                                    context.pushNamed('PaymentPage');
 
                                     FFAppState().showDrawer = true;
                                     safeSetState(() {});
@@ -1914,7 +1939,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                           _model.googleMapsCenter = latLng,
                                       initialLocation:
                                           _model.googleMapsCenter ??=
-                                              FFAppState().location!,
+                                              currentUserLocationValue!,
                                       markers: FFAppState()
                                           .initialMarkers
                                           .map(

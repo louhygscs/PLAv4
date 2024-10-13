@@ -351,7 +351,7 @@ class _Auth2EditProfileWidgetState extends State<Auth2EditProfileWidget>
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed('AddPayment');
+                                context.pushNamed('PaymentPage');
 
                                 FFAppState().showDrawer = true;
                                 safeSetState(() {});
@@ -372,7 +372,7 @@ class _Auth2EditProfileWidgetState extends State<Auth2EditProfileWidget>
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed('AddPayment');
+                                context.pushNamed('PaymentPage');
 
                                 FFAppState().showDrawer = true;
                                 safeSetState(() {});

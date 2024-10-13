@@ -2,26 +2,27 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/payment/payment_details/payment_details_widget.dart';
 import 'package:flutter/material.dart';
-import 'add_payment_model.dart';
-export 'add_payment_model.dart';
+import 'payment_page_model.dart';
+export 'payment_page_model.dart';
 
-class AddPaymentWidget extends StatefulWidget {
-  const AddPaymentWidget({super.key});
+class PaymentPageWidget extends StatefulWidget {
+  const PaymentPageWidget({super.key});
 
   @override
-  State<AddPaymentWidget> createState() => _AddPaymentWidgetState();
+  State<PaymentPageWidget> createState() => _PaymentPageWidgetState();
 }
 
-class _AddPaymentWidgetState extends State<AddPaymentWidget> {
-  late AddPaymentModel _model;
+class _PaymentPageWidgetState extends State<PaymentPageWidget> {
+  late PaymentPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => AddPaymentModel());
+    _model = createModel(context, () => PaymentPageModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -358,7 +359,7 @@ class _AddPaymentWidgetState extends State<AddPaymentWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed('AddPayment');
+                                context.pushNamed('PaymentPage');
                               },
                               child: Icon(
                                 Icons.add_card_rounded,
@@ -376,7 +377,7 @@ class _AddPaymentWidgetState extends State<AddPaymentWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed('AddPayment');
+                                context.pushNamed('PaymentPage');
                               },
                               child: Text(
                                 'Payment',
@@ -515,6 +516,7 @@ class _AddPaymentWidgetState extends State<AddPaymentWidget> {
                         ),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Align(
                               alignment: const AlignmentDirectional(0.0, 0.0),
@@ -555,6 +557,29 @@ class _AddPaymentWidgetState extends State<AddPaymentWidget> {
                                           fontSize: 18.0,
                                           letterSpacing: 0.0,
                                         ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: Align(
+                                alignment: const AlignmentDirectional(1.0, 0.0),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 12.0, 0.0),
+                                  child: FlutterFlowIconButton(
+                                    borderColor: Colors.transparent,
+                                    borderRadius: 20.0,
+                                    buttonSize: 40.0,
+                                    fillColor: const Color(0xFF447AE9),
+                                    icon: Icon(
+                                      Icons.chevron_left,
+                                      color: FlutterFlowTheme.of(context).info,
+                                      size: 24.0,
+                                    ),
+                                    onPressed: () async {
+                                      context.safePop();
+                                    },
                                   ),
                                 ),
                               ),
@@ -679,6 +704,33 @@ class _AddPaymentWidgetState extends State<AddPaymentWidget> {
                             width: 370.0,
                             height: 90.0,
                             fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Container(
+                          width: double.infinity,
+                          height: 313.0,
+                          decoration: const BoxDecoration(),
+                          child: wrapWithModel(
+                            model: _model.paymentDetailsModel,
+                            updateCallback: () => safeSetState(() {}),
+                            child: const PaymentDetailsWidget(),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Container(
+                          width: double.infinity,
+                          height: 100.0,
+                          decoration: const BoxDecoration(),
+                          child: ListView(
+                            padding: EdgeInsets.zero,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            children: const [],
                           ),
                         ),
                       ),

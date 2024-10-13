@@ -252,10 +252,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const WaitingPlayersWidget(),
         ),
         FFRoute(
-          name: 'AddPayment',
-          path: '/addPayment',
+          name: 'PaymentPage',
+          path: '/PaymentPage',
           requireAuth: true,
-          builder: (context, params) => const AddPaymentWidget(),
+          builder: (context, params) => const PaymentPageWidget(),
         ),
         FFRoute(
           name: 'InviteFriends',

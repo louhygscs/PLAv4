@@ -339,7 +339,7 @@ class _CreateGameWidgetState extends State<CreateGameWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed('AddPayment');
+                                context.pushNamed('PaymentPage');
                               },
                               child: Icon(
                                 Icons.add_card_rounded,
@@ -357,7 +357,7 @@ class _CreateGameWidgetState extends State<CreateGameWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed('AddPayment');
+                                context.pushNamed('PaymentPage');
                               },
                               child: Text(
                                 'Payment',

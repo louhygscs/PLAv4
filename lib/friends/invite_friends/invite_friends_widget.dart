@@ -363,7 +363,7 @@ class _InviteFriendsWidgetState extends State<InviteFriendsWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed('AddPayment');
+                                context.pushNamed('PaymentPage');
 
                                 FFAppState().showDrawer = true;
                                 safeSetState(() {});
@@ -384,7 +384,7 @@ class _InviteFriendsWidgetState extends State<InviteFriendsWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed('AddPayment');
+                                context.pushNamed('PaymentPage');
 
                                 FFAppState().showDrawer = true;
                                 safeSetState(() {});
